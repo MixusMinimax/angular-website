@@ -1,0 +1,6 @@
+<mat-toolbar color="primary">
+  <span>Maxi</span>
+  <div class="spacer"></div>
+  <mat-slide-toggle [checked]="isDarkTheme | async" (change)="setDarkTheme($event.checked)">Dark Mode
+  </mat-slide-toggle>
+</mat-toolbar>
