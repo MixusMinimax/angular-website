@@ -1,12 +1,47 @@
-mat-toolbar .spacer {
+.mat-toolbar {
+  height: 50px;
+}
+
+.mat-toolbar .spacer {
   flex: 1 1 auto;
 }
 
-mat-toolbar mat-slide-toggle {
+.mat-toolbar .mat-slide-toggle {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.mat-toolbar button.mat-button {
+  height: 36px;
+}
+
+.mat-toolbar button.mat-button + button.mat-button {
+  margin-left: 16px;
+}
+
+.mat-toolbar button.mat-button span {
+  color: #fffb;
+  font-size: 18px;
+  vertical-align: super;
+}
+
+.mat-toolbar button.mat-button.main span {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.mat-toolbar button.mat-button:disabled span {
+  color: #fff6;
+}
+
+.mat-toolbar button.mat-button.selected {
+  background-color: #fff1;
+}
+
+.mat-toolbar button.mat-button.selected span {
+  color: #fff;
 }

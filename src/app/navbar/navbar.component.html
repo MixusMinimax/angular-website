@@ -1,5 +1,9 @@
 <mat-toolbar color="primary">
-  <span>Maxi</span>
+  <button *ngFor="let but of navButtons" mat-button [disabled]="but.status === 'disabled'"
+    [class.main]="but.type === 'main'" [class.selected]="but.status === 'selected'" routerLink="{{ but.path }}"
+    (click)="onNavButtonClick(but)">
+    <span>{{ but.title }}</span>
+  </button>
   <div class="spacer"></div>
   <mat-slide-toggle [checked]="isDarkTheme | async" (change)="setDarkTheme($event.checked)">Dark Mode
   </mat-slide-toggle>
