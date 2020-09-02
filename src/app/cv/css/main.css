@@ -1,0 +1,26 @@
+/*****************************/
+/**    __  ___       _      **/
+/**   /  |/  /___ _ (_)___  **/
+/**  / /|_/ // _ `// // _ \ **/
+/** /_/  /_/ \_,_//_//_//_/ **/
+/**                         **/
+/*****************************/
+
+.cv-main {
+  position: fixed;
+  top: 50px;
+  left: var(--sidebar-width);
+  right: 0px;
+  bottom: 0px;
+  overflow-y: scroll;
+}
+
+.cv-main li h2 {
+  text-align: left;
+  font-size: 30px;
+  margin: 20px 40px;
+}
+
+.cv-main li li div .body {
+  min-width: 65%;
+}

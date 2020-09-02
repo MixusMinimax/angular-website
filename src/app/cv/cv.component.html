@@ -1,1 +1,47 @@
-<h1>This is where my CV will go.</h1>
+<div class="sidebar">
+    <div *ngIf="cv else loading">
+        <ul class="about">
+            <li>
+                <img class="circle" src="{{ cv.icon }}" alt="{{ cv.name }}">
+            </li>
+            <li>
+                <h1>{{ cv.name }}</h1>
+            </li>
+            <li *ngFor="let row of cv.personalInfo" class="listItem">
+                <ng-container *ngTemplateOutlet="listItem; context: { row: row }"></ng-container>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="cv-main">
+    <div *ngIf="cv else loading">
+        <ul class="sections">
+            <li *ngFor="let section of cv.sections">
+                <div>
+                    <h2>{{ section.title }}</h2>
+                    <ul class="sectionItems">
+                        <li *ngFor="let row of section.lines" class="listItem">
+                            <ng-container *ngTemplateOutlet="listItem; context: { row: row }">
+                            </ng-container>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div center-wrapper>
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+</ng-template>
+
+<ng-template #listItem let-row="row" let-dots="dots">
+    <div>
+        <span class="title">{{ row.title }}</span>
+        <span class="spacer" [class.dots]="dots"></span>
+        <span class="body" [innerHTML]="row.body | newlineToBreak"></span>
+    </div>
+</ng-template>

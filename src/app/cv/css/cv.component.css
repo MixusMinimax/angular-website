@@ -1,0 +1,15 @@
+/* Config */
+@import "./variables.css";
+
+/* List */
+@import "./list.css";
+
+/* Side Bar */
+@import "./sidebar.css";
+
+/* Main */
+@import "./main.css";
+
+.mat-progress-spinner circle {
+  stroke: #aaaa!important;
+}

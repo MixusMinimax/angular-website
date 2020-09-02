@@ -29,5 +29,5 @@ $dark-theme: mat-dark-theme((
 ));
 
 .dark-theme {
-  @include angular-material-theme($dark-theme);
+  @include angular-material-color($dark-theme);
 }

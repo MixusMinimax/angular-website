@@ -1,5 +1,8 @@
 .mat-toolbar {
   height: 50px;
+  z-index: 10;
+  position: fixed;
+  top: 0px;
 }
 
 .mat-toolbar .spacer {

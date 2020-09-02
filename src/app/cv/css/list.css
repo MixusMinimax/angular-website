@@ -1,0 +1,64 @@
+/*************************/
+/**    __    _      __  **/
+/**   / /   (_)___ / /_ **/
+/**  / /__ / /(_-</ __/ **/
+/** /____//_//___/\__/  **/
+/**                     **/
+/*************************/
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  text-align: center;
+}
+
+li.listItem {
+  padding: 12px 0;
+}
+
+li.listItem:nth-child(even) {
+  background-color: #00000005;
+}
+
+li.listItem:nth-child(odd) {
+  background-color: #00000015;
+}
+
+li.listItem div {
+  display: flex;
+  margin: 0 8%;
+  font-size: 18px;
+}
+
+li.listItem div .spacer {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  margin: 0 0.3em;
+}
+
+li.listItem div .spacer.dots::before {
+  content: "..................................................................................................................................................................................................................";
+}
+
+li.listItem div .title {
+  font-weight: bolder;
+}
+
+li.listItem div .body {
+  opacity: 0.8;
+  text-align: left;
+  line-height: 1.3;
+}
+
+li.listItem div .body span {
+  display: inline-block;
+  width: 4em;
+}
+
+li.listItem div .body span[width="5"] {
+  width: 5em;
+}

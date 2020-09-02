@@ -1,0 +1,30 @@
+{
+    "$schema": "../schemas/cv.schema.json",
+    "name": "Maxi Barmetler",
+    "icon": "https://i.imgur.com/lAG1D7l.gif",
+    "personalInfo": [
+        {
+            "title": "Born",
+            "body": "<span>Date:</span>02.04.2000\n<span>City:</span>Bad Tölz"
+        },
+        {
+            "title": "Family",
+            "body": "<span>Mother:</span>Roswitha Böhm\n<span>Sister:</span>Johanna Barmetler"
+        }
+    ],
+    "sections": [
+        {
+            "title": "Education",
+            "lines": [
+                {
+                    "title": "1969-2420",
+                    "body": "Harvard"
+                },
+                {
+                    "title": "2420-2421",
+                    "body": "Line1\nLine2\nLine3"
+                }
+            ]
+        }
+    ]
+}

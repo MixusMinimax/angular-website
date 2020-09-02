@@ -14,13 +14,18 @@ import { AppComponent } from './app.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { HomeComponent } from './home/home.component'
 import { CvComponent } from './cv/cv.component'
+import { MdToHtmlPipe } from './md-to-html.pipe'
+import { NewlineToBreakPipe } from './newline-to-break.pipe'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    CvComponent
+    CvComponent,
+    MdToHtmlPipe,
+    NewlineToBreakPipe
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { CvComponent } from './cv/cv.component'
     MatListModule,
     MatSlideToggleModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

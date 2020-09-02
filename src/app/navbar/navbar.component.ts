@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { Observable } from 'rxjs'
-import { ThemeService } from '../theme.service'
+import { ThemeService } from '../common/theme.service'
 
 enum NavButtonStatus {
   SELECTED = 'selected',
