@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core'
+import { Title } from '@angular/platform-browser'
 import { Router } from '@angular/router'
 import { Observable } from 'rxjs'
 import { ThemeService } from '../common/theme.service'
@@ -52,7 +53,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private titleService: Title,
   ) { }
 
   ngOnInit(): void {
@@ -75,6 +77,7 @@ export class NavbarComponent implements OnInit {
         }
       })
       navButton.status = NavButtonStatus.SELECTED
+      this.titleService.setTitle(`Maxi - ${navButton.title}`)
     }
   }
 }
