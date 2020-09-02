@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { Observable } from 'rxjs'
+import { ContentfulService } from '../common/contentful.service'
 import { CV } from '../common/cv'
-import { CVService } from '../common/cv.service'
 
 @Component({
   selector: 'app-cv',
@@ -15,7 +15,7 @@ export class CvComponent implements OnInit {
   private _cv: Observable<CV>
   cv: CV
 
-  constructor(private cvService: CVService) { }
+  constructor(private cvService: ContentfulService) { }
 
   ngOnInit(): void {
     this._cv = this.cvService.getCV()

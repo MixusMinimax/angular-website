@@ -14,8 +14,8 @@ import { AppComponent } from './app.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { HomeComponent } from './home/home.component'
 import { CvComponent } from './cv/cv.component'
-import { MdToHtmlPipe } from './md-to-html.pipe'
-import { NewlineToBreakPipe } from './newline-to-break.pipe'
+import { MdToHtmlPipe } from './pipes/md-to-html.pipe'
+import { NewlineToBreakPipe } from './pipes/newline-to-break.pipe'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 
 @NgModule({

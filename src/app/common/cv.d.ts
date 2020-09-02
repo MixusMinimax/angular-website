@@ -1,3 +1,11 @@
+export interface Image {
+    fields: {
+        file: {
+            url: string
+        }
+    }
+}
+
 export interface CVLine {
     title: string,
     body: string
@@ -12,7 +20,7 @@ export interface CVSection {
 }
 
 export interface CV {
-    icon?: string,
+    icon?: Image,
     name: string,
     /**
      * @TJS-default []
