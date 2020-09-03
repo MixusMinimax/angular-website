@@ -21,6 +21,6 @@
   margin: 20px 40px;
 }
 
-.cv-main li li div .body {
-  min-width: 65%;
+.cv-main li + li h2 {
+  margin-top: 60px;
 }

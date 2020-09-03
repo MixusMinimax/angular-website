@@ -40,8 +40,10 @@
 
 <ng-template #listItem let-row="row" let-dots="dots">
     <div>
-        <span class="title">{{ row.title }}</span>
-        <span class="spacer" [class.dots]="dots"></span>
-        <span class="body" [innerHTML]="row.body | newlineToBreak"></span>
+        <div class="li-header">
+            <span class="title">{{ row.title }}</span>
+            <span class="spacer" [class.dots]="dots"></span>
+        </div>
+        <span class="body" [innerHTML]="row.body | newlineToBreak | mdToHtml"></span>
     </div>
 </ng-template>

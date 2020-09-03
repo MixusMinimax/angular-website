@@ -30,8 +30,19 @@ li.listItem:nth-child(odd) {
 
 li.listItem div {
   display: flex;
-  margin: 0 8%;
+  margin: 0 4vw;
   font-size: 18px;
+}
+
+li.listItem div .li-header {
+  display: flex;
+  flex: none;
+  width: max(10em, 30%);
+  margin: 0;
+}
+
+li.listItem div .title {
+  font-weight: bolder;
 }
 
 li.listItem div .spacer {
@@ -44,14 +55,14 @@ li.listItem div .spacer.dots::before {
   content: "..................................................................................................................................................................................................................";
 }
 
-li.listItem div .title {
-  font-weight: bolder;
-}
-
 li.listItem div .body {
   opacity: 0.8;
   text-align: left;
   line-height: 1.3;
+}
+
+li.listItem div .body p {
+  margin-bottom: 0;
 }
 
 li.listItem div .body span {

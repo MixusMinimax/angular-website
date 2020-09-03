@@ -12,3 +12,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
   height: calc(100vh - 50px);
 }
+
+.dark-theme a {
+  color: #aaaaff;
+}
+
+.dark-theme a:visited {
+  color: #ccaaff;
+}
