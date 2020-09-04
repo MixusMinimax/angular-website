@@ -28,7 +28,8 @@ button {
 }
 
 button.mat-button span {
-  color: #fffb;
+  opacity: 0.8;
+  color: #fff;
   font-size: 18px;
   vertical-align: super;
 }
@@ -39,7 +40,7 @@ button.mat-button.main span {
 }
 
 button.mat-button:disabled span {
-  color: #fff6;
+  opacity: 0.5;
 }
 
 button.mat-button.selected {
@@ -47,5 +48,5 @@ button.mat-button.selected {
 }
 
 button.mat-button.selected span {
-  color: #fff;
+  opacity: 1;
 }

@@ -23,6 +23,18 @@
     margin-left: 0;
 }
 
+.sidenav button span {
+    color: black;
+}
+
+.sidenav button.selected {
+    background-color: #8883;
+}
+
+.dark-theme .sidenav button span {
+    color: white;
+}
+
 .sidenav-closer {
     position: absolute;
     top: 50px;
