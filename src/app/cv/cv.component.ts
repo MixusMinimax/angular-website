@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core'
 import { Observable } from 'rxjs'
 import { ContentfulService } from '../common/contentful.service'
 import { CV } from '../common/cv'
@@ -15,6 +15,8 @@ export class CvComponent implements OnInit {
   private _cv: Observable<CV>
   cv: CV
 
+  width: number
+
   constructor(private cvService: ContentfulService) { }
 
   ngOnInit(): void {
@@ -23,5 +25,16 @@ export class CvComponent implements OnInit {
       console.log(val)
       this.cv = val
     })
+
+    this.onResize()
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    this.width = window.innerWidth
+  }
+
+  isSlim(): boolean {
+    return this.width < 1000
   }
 }

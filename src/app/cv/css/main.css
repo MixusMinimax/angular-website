@@ -15,12 +15,21 @@
   overflow-y: scroll;
 }
 
+.slim .cv-main {
+  position: relative;
+  overflow-y: visible;
+  box-shadow: none;
+  left: 0;
+  width: 100%;
+}
+
 .cv-main li h2 {
   text-align: left;
   font-size: 30px;
   margin: 20px 40px;
 }
 
+.slim li h2,
 .cv-main li + li h2 {
   margin-top: 60px;
 }

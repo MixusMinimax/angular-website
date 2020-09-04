@@ -1,49 +1,51 @@
-<div class="sidebar">
+<div (window:resize)="onResize()" [class.slim]="isSlim()">
+  <div class="sidebar">
     <div *ngIf="cv else loading">
-        <ul class="about">
-            <li>
-                <img class="circle" src="{{ cv.icon.fields.file.url }}" alt="{{ cv.name }}">
-            </li>
-            <li>
-                <h1>{{ cv.name }}</h1>
-            </li>
-            <li *ngFor="let row of cv.personalInfo" class="listItem">
-                <ng-container *ngTemplateOutlet="listItem; context: { row: row }"></ng-container>
-            </li>
-        </ul>
+      <ul class="about">
+        <li>
+          <img class="circle" src="{{ cv.icon.fields.file.url }}" alt="{{ cv.name }}">
+        </li>
+        <li>
+          <h1>{{ cv.name }}</h1>
+        </li>
+        <li *ngFor="let row of cv.personalInfo" class="listItem">
+          <ng-container *ngTemplateOutlet="listItem; context: { row: row }"></ng-container>
+        </li>
+      </ul>
     </div>
-</div>
+  </div>
 
-<div class="cv-main">
+  <div class="cv-main">
     <div *ngIf="cv else loading">
-        <ul class="sections">
-            <li *ngFor="let section of cv.sections">
-                <div>
-                    <h2>{{ section.title }}</h2>
-                    <ul class="sectionItems">
-                        <li *ngFor="let row of section.lines" class="listItem">
-                            <ng-container *ngTemplateOutlet="listItem; context: { row: row }">
-                            </ng-container>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+      <ul class="sections">
+        <li *ngFor="let section of cv.sections">
+          <div>
+            <h2>{{ section.title }}</h2>
+            <ul class="sectionItems">
+              <li *ngFor="let row of section.lines" class="listItem">
+                <ng-container *ngTemplateOutlet="listItem; context: { row: row }">
+                </ng-container>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
 </div>
 
 <ng-template #loading>
-    <div center-wrapper>
-        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-    </div>
+  <div center-wrapper>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
 </ng-template>
 
 <ng-template #listItem let-row="row" let-dots="dots">
-    <div>
-        <div class="li-header">
-            <span class="title">{{ row.title }}</span>
-            <span class="spacer" [class.dots]="dots"></span>
-        </div>
-        <span class="body" [innerHTML]="row.body | newlineToBreak | mdToHtml"></span>
+  <div>
+    <div class="li-header">
+      <span class="title">{{ row.title }}</span>
+      <span class="spacer" [class.dots]="dots"></span>
     </div>
+    <span class="body" [innerHTML]="row.body | newlineToBreak | mdToHtml"></span>
+  </div>
 </ng-template>
