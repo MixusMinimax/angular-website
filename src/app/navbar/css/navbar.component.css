@@ -1,8 +1,11 @@
+@import "./sidenav.css";
+
 .mat-toolbar {
   height: 50px;
   z-index: 10;
   position: fixed;
   top: 0px;
+  padding-left: 0;
 }
 
 .mat-toolbar .spacer {
@@ -18,33 +21,31 @@
   user-select: none;
 }
 
-.mat-toolbar button.mat-button {
+button {
   height: 36px;
-}
-
-.mat-toolbar button.mat-button + button.mat-button {
+  vertical-align: middle;
   margin-left: 16px;
 }
 
-.mat-toolbar button.mat-button span {
+button.mat-button span {
   color: #fffb;
   font-size: 18px;
   vertical-align: super;
 }
 
-.mat-toolbar button.mat-button.main span {
+button.mat-button.main span {
   font-weight: bold;
   font-size: 22px;
 }
 
-.mat-toolbar button.mat-button:disabled span {
+button.mat-button:disabled span {
   color: #fff6;
 }
 
-.mat-toolbar button.mat-button.selected {
+button.mat-button.selected {
   background-color: #fff1;
 }
 
-.mat-toolbar button.mat-button.selected span {
+button.mat-button.selected span {
   color: #fff;
 }

@@ -17,6 +17,7 @@
 }
 
 .slim .sidebar {
+  top: 0px;
   position: relative;
   overflow-y: visible;
   box-shadow: none;

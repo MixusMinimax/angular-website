@@ -1,0 +1,64 @@
+.sidenav {
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    left: -150px;
+    width: 150px;
+    background-color: white;
+    z-index: 2;
+    transition: left 100ms ease-in-out;
+}
+
+.dark-theme .sidenav {
+    background-color: #222;
+}
+
+.sidenav.open {
+    left: 0px;
+}
+
+.sidenav button {
+    width: 100%;
+    border-radius: 0;
+    margin-left: 0;
+}
+
+.sidenav-closer {
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    width: 100%;
+    opacity: 0;
+    background-color: #555;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 100ms ease-in-out;
+}
+
+.sidenav-closer.open {
+    opacity: 0.5;
+    pointer-events: all;
+}
+
+.menuButton {
+    min-width: 0!important;
+    width: 50px!important;
+    height: 50px!important;
+    border-width: 0;
+    margin-left: 0!important;
+    background-color: transparent;
+    padding: 0!important;
+}
+
+.menuButton:hover {
+    background-color: #fff1;
+}
+
+.menuButton .mat-icon {
+    color: white;
+    opacity: 0.8;
+    font-size: 40px;
+    width: 50px;
+    height: 40px;
+    vertical-align: middle!important;
+}

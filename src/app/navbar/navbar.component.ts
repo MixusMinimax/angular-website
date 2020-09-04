@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core'
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { Router } from '@angular/router'
 import { Observable } from 'rxjs'
@@ -37,7 +37,7 @@ class NavButton implements NavButton {
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./css/navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
 
@@ -51,6 +51,9 @@ export class NavbarComponent implements OnInit {
 
   isDarkTheme: Observable<boolean>
 
+  width: number
+  isSideNavOpen: boolean
+
   constructor(
     private router: Router,
     private themeService: ThemeService,
@@ -63,6 +66,7 @@ export class NavbarComponent implements OnInit {
       if (val.error) { val.url = '/' }
       this.onNavButtonClick(this.navButtons.find(but => but.path === val.url))
     })
+    this.onResize()
   }
 
   setDarkTheme(isDarkTheme: boolean): void {
@@ -79,5 +83,14 @@ export class NavbarComponent implements OnInit {
       navButton.status = NavButtonStatus.SELECTED
       this.titleService.setTitle(`Maxi - ${navButton.title}`)
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: any): void {
+    this.width = (event?.target || window).innerWidth
+  }
+
+  isSlim(): boolean {
+    return this.width < 700
   }
 }

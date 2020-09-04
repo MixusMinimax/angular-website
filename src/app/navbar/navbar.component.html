@@ -1,10 +1,30 @@
-<mat-toolbar color="primary">
-  <button *ngFor="let but of navButtons" mat-button [disabled]="but.status === 'disabled'"
-    [class.main]="but.type === 'main'" [class.selected]="but.status === 'selected'" routerLink="{{ but.path }}"
-    (click)="onNavButtonClick(but)">
-    <span>{{ but.title }}</span>
-  </button>
-  <div class="spacer"></div>
-  <mat-slide-toggle [checked]="isDarkTheme | async" (change)="setDarkTheme($event.checked)">Dark Mode
-  </mat-slide-toggle>
-</mat-toolbar>
+<div [class.dark-theme]="isDarkTheme | async">
+  <div (window:resize)="onResize($event)">
+    <mat-toolbar color="primary">
+      <div *ngIf="!isSlim()">
+        <button *ngFor="let but of navButtons" mat-button [disabled]="but.status === 'disabled'"
+          [class.main]="but.type === 'main'" [class.selected]="but.status === 'selected'" routerLink="{{ but.path }}"
+          (click)="onNavButtonClick(but)">
+          <span>{{ but.title }}</span>
+        </button>
+      </div>
+      <div *ngIf="isSlim()">
+        <button class="menuButton" (click)="isSideNavOpen = !isSideNavOpen">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div class="spacer"></div>
+      <mat-slide-toggle [checked]="isDarkTheme | async" (change)="setDarkTheme($event.checked)">Dark Mode
+      </mat-slide-toggle>
+    </mat-toolbar>
+  </div>
+
+  <div [class.open]="isSideNavOpen" class="sidenav">
+    <button *ngFor="let but of navButtons" mat-button [disabled]="but.status === 'disabled'"
+      [class.main]="but.type === 'main'" [class.selected]="but.status === 'selected'" routerLink="{{ but.path }}"
+      (click)="onNavButtonClick(but)">
+      <span>{{ but.title }}</span>
+    </button>
+  </div>
+  <div [class.open]="isSideNavOpen" class="sidenav-closer" (click)="isSideNavOpen = false"></div>
+</div>
