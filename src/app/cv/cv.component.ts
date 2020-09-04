@@ -37,4 +37,8 @@ export class CvComponent implements OnInit {
   isSlim(): boolean {
     return this.width < 1000
   }
+
+  isExtremelySlim(): boolean {
+    return this.width < 700
+  }
 }

@@ -34,6 +34,10 @@ li.listItem div {
   font-size: 18px;
 }
 
+.xSlim li.listItem div {
+  display: block;
+}
+
 li.listItem div .li-header {
   display: flex;
   flex: none;
@@ -59,6 +63,12 @@ li.listItem div .body {
   opacity: 0.8;
   text-align: left;
   line-height: 1.3;
+}
+
+.xSlim li.listItem div .body {
+  display: block;
+  margin-top: 1em;
+  margin-left: 2em;
 }
 
 li.listItem div .body p {

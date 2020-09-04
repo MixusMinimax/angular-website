@@ -10,6 +10,15 @@
 /* Main */
 @import "./main.css";
 
+:root {
+  overflow-x: hidden;
+}
+
 .mat-progress-spinner circle {
   stroke: #aaaa!important;
+}
+
+div.slim {
+  overflow-y: scroll;
+  height: calc(100vh - 50px);
 }

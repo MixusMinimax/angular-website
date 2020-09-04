@@ -1,4 +1,4 @@
-<div (window:resize)="onResize()" [class.slim]="isSlim()">
+<div (window:resize)="onResize()" [class.slim]="isSlim()" [class.xSlim]="isExtremelySlim()">
   <div class="sidebar">
     <div *ngIf="cv else loading">
       <ul class="about">
