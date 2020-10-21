@@ -31,12 +31,16 @@
         > .title {
             color: white;
             position: absolute;
-            pointer-events: none;
+            cursor: pointer;
+            background-color: #000000a0;
             top: 0;
             left: 0;
             right: 0;
             font-size: 2em;
-            margin: 0.5em;
+            padding: 0.5em;
+            border-radius: 0.49em; // Hack to get rid of thin line
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
         > .details {
             flex: none;
@@ -58,14 +62,16 @@
                 height: 4.5em;
             }
 
-            > button {
+            > a {
                 flex: 0;
                 cursor: pointer;
                 background-color: transparent;
+                color: #282832;
                 border-width: 0;
                 padding: 0;
                 margin: 0;
                 margin: auto 0;
+                pointer-events: all;
 
                 > div {
                     display: flex;
@@ -83,7 +89,7 @@
                 }
             }
 
-            > button:hover {
+            > a:hover {
                 color: #888888dd;
             }
         }

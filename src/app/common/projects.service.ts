@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core'
+import { Asset, RichTextContent } from 'contentful'
+import { Observable, scheduled } from 'rxjs'
+import { asap } from 'rxjs/internal/scheduler/asap'
+import { ContentfulService } from './contentful.service'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 export interface ProjectCard {
     title: string,
-    image: string,
+    preview: string,
     description: { short: string, full: string },
     links?: {
         code?: string,
@@ -13,32 +18,35 @@ export interface ProjectCard {
 @Injectable({
     providedIn: 'root'
 })
-export class ProjectsService {
+export class ProjectsService extends ContentfulService {
 
-    constructor() { }
-
-    getProjects(): ProjectCard[] {
-        return [
-            {
-                title: 'Website',
-                description: {
-                    short: 'My website.',
-                    full: 'My website is written with Angular.'
-                },
-                image: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
-                links: {
-                    code: 'https://github.com/MixusMinimax/angular-website'
+    getProjects(): Observable<ProjectCard[]> {
+        console.log('getProjects')
+        return scheduled((async () => {
+            const ret = (await this.client.getEntries<{
+                title: string,
+                preview: Asset,
+                shortDescription: RichTextContent,
+                fullDescription: RichTextContent,
+                codeSource: string,
+                gameSource: string
+            }>({ content_type: 'projectCard' })).items.map(entry => {
+                const fields = entry.fields
+                return {
+                    title: fields.title,
+                    preview: fields.preview.fields.file.url,
+                    description: {
+                        short: documentToHtmlString(fields.shortDescription as any),
+                        full: documentToHtmlString(fields.fullDescription as any)
+                    },
+                    links: {
+                        code: fields.codeSource,
+                        game: fields.gameSource
+                    }
                 }
-            },
-
-            ...[{
-                title: 'Nonogram',
-                description: {
-                    short: 'This is a **game**.\nSecond Line\nThird line aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa This should be invisible\nFourth',
-                    full: 'This is a **longer description** that will go on the page.'
-                },
-                image: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg'
-            }].map(e => [e, e, e, e, e, e, e, e, e])[0],
-        ]
+            })
+            // console.log(ret)
+            return ret
+        })(), asap)
     }
 }
