@@ -16,7 +16,9 @@ import { HomeComponent } from './home/home.component'
 import { CvComponent } from './cv/cv.component'
 import { MdToHtmlPipe } from './pipes/md-to-html.pipe'
 import { NewlineToBreakPipe } from './pipes/newline-to-break.pipe'
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProjectsComponent } from './projects/projects.component'
+import { FlexLayoutModule } from '@angular/flex-layout'
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     HomeComponent,
     CvComponent,
     MdToHtmlPipe,
-    NewlineToBreakPipe
+    NewlineToBreakPipe,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     MatSlideToggleModule,
     MatMenuModule,
     MatProgressSpinnerModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

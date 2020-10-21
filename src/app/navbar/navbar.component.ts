@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
   navButtons: NavButton[] = [
     new NavButton({ title: 'Home', path: '/', type: NavButtonType.MAIN }),
     new NavButton({ title: 'CV', path: '/cv' }),
-    new NavButton({ title: 'Projects', path: '/projects', status: NavButtonStatus.DISABLED }),
+    new NavButton({ title: 'Projects', path: '/projects' }),
   ]
 
   selectedNavButton: NavButton

@@ -1,0 +1,9 @@
+<h1>projects works!</h1>
+
+<div class="projects-list flex-container" fxLayout="row" fxLayout.xs="column">
+  <div *ngFor="let project of projects" class="projects-card" ngClass.xs="mobile">
+    <img src="{{project.image}}" alt="Preview: {{project.title}}">
+    <p class="title">{{project.title}}</p>
+    <div class="description" [innerHTML]="project.description.short | mdToHtml"></div>
+  </div>
+</div>
