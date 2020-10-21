@@ -1,14 +1,14 @@
 /* Config */
-@import "./variables.css";
+@import "./variables.scss";
 
 /* List */
-@import "./list.css";
+@import "./list.scss";
 
 /* Side Bar */
-@import "./sidebar.css";
+@import "./sidebar.scss";
 
 /* Main */
-@import "./main.css";
+@import "./main.scss";
 
 :root {
   overflow-x: hidden;

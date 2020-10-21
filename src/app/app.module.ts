@@ -18,7 +18,9 @@ import { MdToHtmlPipe } from './pipes/md-to-html.pipe'
 import { NewlineToBreakPipe } from './pipes/newline-to-break.pipe'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProjectsComponent } from './projects/projects.component'
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ProjectPageComponent } from './project-page/project-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     CvComponent,
     MdToHtmlPipe,
     NewlineToBreakPipe,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectPageComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     MatMenuModule,
     MatProgressSpinnerModule,
     FlexLayoutModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

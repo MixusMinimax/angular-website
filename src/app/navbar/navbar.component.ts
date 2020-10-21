@@ -37,7 +37,7 @@ class NavButton implements NavButton {
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./css/navbar.component.css'],
+  styleUrls: ['./scss/navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
 

@@ -1,32 +1,33 @@
-import { Component, OnInit } from '@angular/core'
-
-interface ProjectCard {
-    title: string,
-    image: string,
-    description: { short: string, full: string },
-    gameSource?: string
-}
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import * as utils from '../../utils/string'
+import { ProjectCard, ProjectsService } from '../common/projects.service'
+import { faGithub, faGitlab } from '@fortawesome/free-brands-svg-icons'
+import { faCode } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
     selector: 'app-projects',
     templateUrl: './projects.component.html',
-    styleUrls: ['./projects.component.css']
+    styleUrls: ['./projects.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class ProjectsComponent implements OnInit {
 
-    constructor() { }
+    utils = utils
+    faGitHub = faGithub
+    faGitlab = faGitlab
+    faCode = faCode
 
-    ngOnInit(): void {
-    }
+    constructor(
+        private projectsService: ProjectsService
+    ) { }
+
+    ngOnInit(): void { }
 
     get projects(): ProjectCard[] {
-        return [{
-            title: 'Nonogram',
-            description: {
-                short: 'This is a **game**.',
-                full: 'This is a **longer description** that will go on the page.'
-            },
-            image: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg'
-        }]
+        return this.projectsService.getProjects()
+    }
+
+    openLink(link: string): void {
+        window.open(link)
     }
 }

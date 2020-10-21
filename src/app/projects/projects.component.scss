@@ -1,0 +1,121 @@
+.root {
+    width: 100%;
+}
+
+.projects-list {
+    margin: 1em;
+
+    > .projects-card {
+        margin: 1em;
+
+        display: flex;
+        flex-direction: column;
+        width: 30em;
+        height: 22em;
+        position: relative;
+        border-radius: 1.1em;
+        box-shadow: #00000060 0.2em 0.2em 0.4em;
+
+        transition: transform 50ms ease-in-out, box-shadow 50ms ease-in-out;
+
+        > img {
+            flex: 1;
+            user-select: none;
+            pointer-events: none;
+            vertical-align: top;
+            border-radius: 1em 1em 0 0;
+            width: 100%;
+            min-height: 0;
+            object-fit: cover;
+        }
+        > .title {
+            color: white;
+            position: absolute;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            font-size: 2em;
+            margin: 0.5em;
+        }
+        > .details {
+            flex: none;
+            border-radius: 0 0 1em 1em;
+            padding: 0.3em 1em;
+            background-color: white;
+            display: flex;
+
+            > .description {
+                flex: 1;
+                pointer-events: none;
+                word-wrap: break-word;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                line-height: 1.5em;
+                height: 4.5em;
+            }
+
+            > button {
+                flex: 0;
+                cursor: pointer;
+                background-color: transparent;
+                border-width: 0;
+                padding: 0;
+                margin: 0;
+                margin: auto 0;
+
+                > div {
+                    display: flex;
+                    width: 3em;
+                    height: 3em;
+                }
+
+                > div > fa-icon {
+                    vertical-align: top;
+                    margin: auto;
+                    font-size: 2em;
+                    width: auto;
+                    height: auto;
+                    font-weight: bold;
+                }
+            }
+
+            > button:hover {
+                color: #888888dd;
+            }
+        }
+    }
+}
+
+.projects-list:not(.mobile) > .projects-card:hover {
+    transform: translate(-0.1em, -0.1em);
+    box-shadow: #00000060 0.3em 0.3em 0.7em;
+}
+
+.projects-list.mobile {
+    margin: 0;
+
+    > .projects-card {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+        height: calc(70vw - 16px); // hack to keep the aspect ratio roughly in check
+
+        > img {
+            border-radius: 0;
+        }
+
+        > .details {
+            border-radius: 0;
+            padding-bottom: 2em;
+        }
+    }
+}
+
+.dark-theme .projects-list > .projects-card > .details {
+    background-color: #45454f;
+}

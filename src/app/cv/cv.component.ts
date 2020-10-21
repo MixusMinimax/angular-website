@@ -6,7 +6,7 @@ import { CV } from '../common/cv'
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
-  styleUrls: ['./css/cv.component.css'],
+  styleUrls: ['./scss/cv.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class CvComponent implements OnInit {

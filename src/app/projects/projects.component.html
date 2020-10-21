@@ -1,9 +1,26 @@
-<h1>projects works!</h1>
+<div class="root">
 
-<div class="projects-list flex-container" fxLayout="row" fxLayout.xs="column">
-  <div *ngFor="let project of projects" class="projects-card" ngClass.xs="mobile">
-    <img src="{{project.image}}" alt="Preview: {{project.title}}">
-    <p class="title">{{project.title}}</p>
-    <div class="description" [innerHTML]="project.description.short | mdToHtml"></div>
+  <div class="projects-list flex-container" fxLayout="row wrap" fxLayoutAlign="start" fxLayout.xs="column"
+    ngClass.xs="mobile">
+    <div *ngFor="let project of projects" class="projects-card flex-item" [routerLink]="project.title">
+      <img src="{{project.image}}" alt="Preview: {{project.title}}">
+      <p class="title">{{project.title}}</p>
+      <div class="details flex-container">
+        <div class="description" [innerHTML]="project.description.short | mdToHtml:'no-paragraph':'keep-newlines'">
+        </div>
+        <button *ngIf="project.links?.code" [ngSwitch]="true" (click)="openLink(project.links?.code)">
+          <div *ngSwitchCase="utils.isGitHubURL(project.links?.code)">
+            <fa-icon [icon]="faGitHub"></fa-icon>
+          </div>
+          <div *ngSwitchCase="utils.isGitLabURL(project.links?.code)">
+            <fa-icon [icon]="faGitlab"></fa-icon>
+          </div>
+          <div *ngSwitchDefault>
+            <fa-icon [icon]="faCode"></fa-icon>
+          </div>
+        </button>
+      </div>
+    </div>
   </div>
+
 </div>
