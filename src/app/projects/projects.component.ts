@@ -38,4 +38,8 @@ export class ProjectsComponent implements OnInit {
     openLink(link: string): void {
         window.open(link)
     }
+
+    onCardChildClick(e: Event): void {
+        e.stopPropagation()
+    }
 }

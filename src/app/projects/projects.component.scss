@@ -12,54 +12,68 @@
         flex-direction: column;
         width: 30em;
         height: 22em;
-        position: relative;
         border-radius: 1.1em;
         box-shadow: #00000060 0.2em 0.2em 0.4em;
 
         transition: transform 50ms ease-in-out, box-shadow 50ms ease-in-out;
 
-        > img {
+        > .preview {
+            position: relative;
             flex: 1;
-            user-select: none;
-            pointer-events: none;
-            vertical-align: top;
-            border-radius: 1em 1em 0 0;
-            width: 100%;
             min-height: 0;
-            object-fit: cover;
-        }
-        > .title {
-            color: white;
-            position: absolute;
-            cursor: pointer;
-            background-color: #000000a0;
-            top: 0;
-            left: 0;
-            right: 0;
-            font-size: 2em;
-            padding: 0.5em;
-            border-radius: 0.49em; // Hack to get rid of thin line
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
+            > img {
+                user-select: none;
+                pointer-events: none;
+                vertical-align: top;
+                border-radius: 1em 1em 0 0;
+                width: 100%;
+                min-height: 0;
+                height: 100%;
+                object-fit: cover;
+            }
+            > .description {
+                $font-size: 1.3em;
+
+                opacity: 0;
+                // opacity: 1; // remove this when done with styling
+
+                color: white;
+                font-size: $font-size;
+                line-height: 1.4em;
+                overflow: hidden;
+
+                position: absolute;
+                background-color: #000000a0;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 0.5em 0.85em;
+                // Border radius should be 0.98em in relation to parent, as to hide thin lines that appear
+                border-radius: #{1em / $font-size * 1em - 0.02em};
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                transition: opacity 50ms ease-in-out;
+            }
         }
         > .details {
             flex: none;
             border-radius: 0 0 1em 1em;
             padding: 0.3em 1em;
-            background-color: white;
+            background-color: #d0d8ff;
             display: flex;
 
-            > .description {
+            > .title {
                 flex: 1;
-                pointer-events: none;
-                word-wrap: break-word;
+                font-weight: bold;
+                font-size: 1.2em;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
-                line-height: 1.5em;
-                height: 4.5em;
+                margin: auto;
+            }
+
+            > .title > .description {
+                display: none;
             }
 
             > a {
@@ -70,8 +84,7 @@
                 border-width: 0;
                 padding: 0;
                 margin: 0;
-                margin: auto 0;
-                pointer-events: all;
+                margin-top: auto;
 
                 > div {
                     display: flex;
@@ -99,6 +112,9 @@
 .projects-list:not(.mobile) > .projects-card:hover {
     transform: translate(-0.1em, -0.1em);
     box-shadow: #00000060 0.3em 0.3em 0.7em;
+    > .preview > .description {
+        opacity: 1;
+    }
 }
 
 .projects-list.mobile {
@@ -111,13 +127,32 @@
         margin: 0;
         height: calc(70vw - 16px); // hack to keep the aspect ratio roughly in check
 
-        > img {
-            border-radius: 0;
+        > .preview {
+            > img {
+                border-radius: 0;
+            }
+            > .description {
+                border-radius: 0;
+            }
         }
 
         > .details {
             border-radius: 0;
-            padding-bottom: 2em;
+            padding-bottom: 0.6em;
+            > .title {
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+
+                > .description {
+                    margin-top: 0.6em;
+                    display: block;
+                    font-weight: normal;
+                    line-height: 1.2em;
+                    max-height: 3.6em;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
         }
     }
 }

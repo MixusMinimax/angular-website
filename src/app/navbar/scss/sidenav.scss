@@ -1,9 +1,12 @@
 .sidenav {
+    --width: min(15em, 80%);
+
+    font-size: 1.5em;
     position: absolute;
     top: 50px;
-    bottom: 0px;
-    left: -150px;
-    width: 150px;
+    bottom: 0;
+    left: calc(-1 * var(--width));
+    width: var(--width);
     background-color: white;
     z-index: 2;
     transition: left 100ms ease-in-out;
@@ -17,18 +20,26 @@
     left: 0px;
 }
 
-.sidenav button {
-    width: 100%;
-    border-radius: 0;
-    margin-left: 0;
-}
-
-.sidenav button span {
-    color: black;
-}
-
-.sidenav button.selected {
-    background-color: #8883;
+.sidenav {
+    button {
+        font-size: inherit;
+        height: 3em;
+        width: 100%;
+        border-radius: 0;
+        margin-left: 0;
+    }
+    button span {
+        margin: auto;
+        vertical-align: top;
+        font-size: 1.2em;
+        color: black;
+    }
+    button.main span {
+        font-size: 1.3em;
+    }
+    button.selected {
+        background-color: #8883;
+    }
 }
 
 .dark-theme .sidenav button span {
@@ -53,13 +64,13 @@
 }
 
 .menuButton {
-    min-width: 0!important;
-    width: 50px!important;
-    height: 50px!important;
+    min-width: 0 !important;
+    width: 50px !important;
+    height: 50px !important;
     border-width: 0;
-    margin-left: 0!important;
+    margin-left: 0 !important;
     background-color: transparent;
-    padding: 0!important;
+    padding: 0 !important;
 }
 
 .menuButton:hover {
@@ -72,5 +83,5 @@
     font-size: 40px;
     width: 50px;
     height: 40px;
-    vertical-align: middle!important;
+    vertical-align: middle !important;
 }

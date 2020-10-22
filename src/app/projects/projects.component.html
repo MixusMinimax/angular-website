@@ -2,13 +2,20 @@
 
   <div class="projects-list flex-container" fxLayout="row wrap" fxLayoutAlign="start" fxLayout.xs="column"
     ngClass.xs="mobile">
-    <div *ngFor="let project of projects" class="projects-card flex-item">
-      <img src="{{project.preview}}" alt="Preview: {{project.title}}">
-      <p class="title" [routerLink]="project.title">{{project.title}}</p>
-      <div class="details flex-container">
+    <div *ngFor="let project of projects" class="projects-card flex-item"
+      [routerLink]="project.title | replaceSpaces:'lower'">
+      <div class="preview">
+        <img src="{{project.preview}}" alt="Preview: {{project.title}}">
         <div class="description" [innerHTML]="project.description.short | mdToHtml:'no-paragraph':'keep-newlines'">
         </div>
-        <a *ngIf="project.links?.code" [ngSwitch]="true" [href]="project.links?.code" target="_blank">
+      </div>
+      <div class="details flex-container">
+        <div class="title">{{project.title}}
+          <div class="description" [innerHTML]="project.description.short | mdToHtml:'no-paragraph':'keep-newlines'">
+          </div>
+        </div>
+        <a *ngIf="project.links?.code" [ngSwitch]="true" [href]="project.links?.code" target="_blank"
+          (click)="onCardChildClick($event)">
           <div *ngSwitchCase="utils.isGitHubURL(project.links?.code)">
             <fa-icon [icon]="faGitHub"></fa-icon>
           </div>

@@ -16,40 +16,42 @@ import { HomeComponent } from './home/home.component'
 import { CvComponent } from './cv/cv.component'
 import { MdToHtmlPipe } from './pipes/md-to-html.pipe'
 import { NewlineToBreakPipe } from './pipes/newline-to-break.pipe'
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { ProjectsComponent } from './projects/projects.component'
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { ProjectPageComponent } from './project-page/project-page.component';
+import { FlexLayoutModule } from '@angular/flex-layout'
+import { ProjectPageComponent } from './project-page/project-page.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { ReplaceSpacesPipe } from './pipes/replace-spaces.pipe'
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    CvComponent,
-    MdToHtmlPipe,
-    NewlineToBreakPipe,
-    ProjectsComponent,
-    ProjectPageComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatSlideToggleModule,
-    MatMenuModule,
-    MatProgressSpinnerModule,
-    FlexLayoutModule,
-    FontAwesomeModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        HomeComponent,
+        CvComponent,
+        MdToHtmlPipe,
+        NewlineToBreakPipe,
+        ProjectsComponent,
+        ProjectPageComponent,
+        ReplaceSpacesPipe
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatSlideToggleModule,
+        MatMenuModule,
+        MatProgressSpinnerModule,
+        FlexLayoutModule,
+        FontAwesomeModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
