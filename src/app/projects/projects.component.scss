@@ -157,6 +157,15 @@
     }
 }
 
+.projects-list.mobile-landscape {
+    $scale: 0.63;
+    font-size: #{$scale * 1em};
+
+    > .projects-card > * {
+        font-size: #{1em / $scale};
+    }
+}
+
 .dark-theme .projects-list > .projects-card > .details {
     background-color: #45454f;
 }

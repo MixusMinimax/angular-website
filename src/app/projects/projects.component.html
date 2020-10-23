@@ -1,7 +1,7 @@
 <div class="root">
 
   <div class="projects-list flex-container" fxLayout="row wrap" fxLayoutAlign="start" fxLayout.xs="column"
-    ngClass.xs="mobile">
+    ngClass.xs="mobile" ngClass.sm="mobile-landscape">
     <div *ngFor="let project of projects" class="projects-card flex-item"
       [routerLink]="project.title | replaceSpaces:'lower'">
       <div class="preview">
