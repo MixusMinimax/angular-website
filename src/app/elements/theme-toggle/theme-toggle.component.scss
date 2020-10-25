@@ -1,0 +1,80 @@
+$handle-margin: 0.15em;
+$handle-size: 1.4em;
+
+#slide-container {
+    font-size: 0.85em;
+
+    width: 3em;
+    border-radius: 999px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #70a0e0;
+    background-color: #00000060;
+    
+    cursor: pointer;
+
+    > #slide-handle {
+        pointer-events: none;
+
+        border-radius: 50%;
+        background-color: #76d1db;
+        height: $handle-size;
+        width: $handle-size;
+        margin: $handle-margin;
+        margin-left: calc(3em - #{$handle-size + $handle-margin});
+        position: relative;
+        transition: background-color 100ms ease-in-out, margin-left 100ms linear;
+
+        > #icon-wrapper {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            justify-content: center;
+            text-align: center;
+
+            > #sun,
+            > #moon {
+                text-align: center;
+                position: relative;
+                transition: opacity 100ms ease-in-out;
+
+                > svg {
+                    vertical-align: top;
+                    transform: translate(0, 0.188em); // I give up, it works, so shut up
+                }
+            }
+
+            > #sun {
+                margin-left: 0.04em;
+                color: #fffac2;
+            }
+
+            > #moon {
+                margin-left: -0.08em;
+                color: #dddddd;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.dark-theme #slide-container {
+    border-color: #4d6e96;
+
+    > #slide-handle {
+        background-color: #274d6e;
+        margin-left: $handle-margin;
+
+        > #icon-wrapper {
+            > #sun {
+                opacity: 0;
+            }
+
+            > #moon {
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -14,8 +14,7 @@
         </button>
       </div>
       <div class="spacer"></div>
-      <mat-slide-toggle [checked]="isDarkTheme | async" (change)="setDarkTheme($event.checked)">Dark Mode
-      </mat-slide-toggle>
+      <app-theme-toggle></app-theme-toggle>
     </mat-toolbar>
   </div>
 

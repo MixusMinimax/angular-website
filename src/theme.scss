@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @include mat-core();
 
@@ -6,27 +6,68 @@ $light-primary: mat-palette($mat-indigo);
 $light-accent: mat-palette($mat-light-blue, A200, A100, A400);
 $light-warn: mat-palette($mat-red);
 
-$light-theme: mat-light-theme((
-  color: (
-    primary: $light-primary,
-    accent: $light-accent,
-    warn: $light-warn,
+$light-theme: mat-light-theme(
+  (
+    color: (
+      primary: $light-primary,
+      accent: $light-accent,
+      warn: $light-warn,
+    ),
   )
-));
+);
 
 @include angular-material-theme($light-theme);
 
-$dark-primary: mat-palette($mat-indigo);
+$dark-primary: #143772;
+$dark-primary: mat-palette(
+  (
+    50: $dark-primary,
+    100: $dark-primary,
+    200: $dark-primary,
+    300: $dark-primary,
+    400: $dark-primary,
+    500: $dark-primary,
+    600: $dark-primary,
+    700: $dark-primary,
+    800: $dark-primary,
+    900: $dark-primary,
+    A100: $dark-primary,
+    A200: $dark-primary,
+    A400: $dark-primary,
+    A700: $dark-primary,
+    contrast: (
+      50: white,
+      100: white,
+      200: white,
+      300: white,
+      400: white,
+      500: white,
+      600: white,
+      700: white,
+      800: white,
+      900: white,
+      A100: white,
+      A200: white,
+      A400: white,
+      A700: white,
+    ),
+  ),
+  100,
+  50,
+  200
+);
 $dark-accent: mat-palette($mat-light-blue, A200, A100, A400);
 $dark-warn: mat-palette($mat-red);
 
-$dark-theme: mat-dark-theme((
-  color: (
-    primary: $dark-primary,
-    accent: $dark-accent,
-    warn: $dark-warn,
+$dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
+    ),
   )
-));
+);
 
 .dark-theme {
   @include angular-material-color($dark-theme);

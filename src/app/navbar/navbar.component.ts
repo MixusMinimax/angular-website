@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core'
+import { Component, HostListener, OnInit } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { Router } from '@angular/router'
 import { Observable } from 'rxjs'
 import { ThemeService } from '../common/theme.service'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
 enum NavButtonStatus {
     SELECTED = 'selected',
@@ -40,6 +41,9 @@ class NavButton implements NavButton {
     styleUrls: ['./scss/navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+
+    faSun = faSun
+    faMoon = faMoon
 
     navButtons: NavButton[] = [
         new NavButton({ title: 'Home', path: '/', type: NavButtonType.MAIN }),
