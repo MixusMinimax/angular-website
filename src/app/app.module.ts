@@ -53,7 +53,9 @@ import { ThemeToggleComponent } from './elements/theme-toggle/theme-toggle.compo
         FlexLayoutModule,
         FontAwesomeModule,
     ],
-    providers: [],
+    providers: [
+        ReplaceSpacesPipe
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

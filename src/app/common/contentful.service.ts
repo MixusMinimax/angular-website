@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import { createClient } from 'contentful'
-import { Observable, scheduled } from 'rxjs'
-import { asap } from 'rxjs/internal/scheduler/asap'
+import { from, Observable } from 'rxjs'
 import { CV } from './cv'
 import cvMock from './mock/cv.json'
 import schemaJson from './schemas/cv.schema.json'
@@ -27,9 +26,9 @@ export class ContentfulService {
     constructor() { }
 
     getCV(): Observable<CV> {
-        return scheduled(this.client.getEntries({
+        return from(this.client.getEntries({
             content_type: 'cv'
-        }).catch(e => null).then(res => {
+        }).catch(() => null).then(res => {
             const result = res?.items?.[0]?.fields
             console.log(result)
             if (result && isValid(cvValidator, result)) {
@@ -41,6 +40,6 @@ export class ContentfulService {
                     return null
                 }
             }
-        }), asap)
+        }))
     }
 }

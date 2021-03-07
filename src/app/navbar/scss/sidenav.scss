@@ -2,7 +2,7 @@
     --width: min(15em, 80%);
 
     font-size: 1.5em;
-    position: absolute;
+    position: fixed;
     top: 50px;
     bottom: 0;
     left: calc(-1 * var(--width));

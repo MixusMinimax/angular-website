@@ -1,1 +1,15 @@
-<p>project-page works!</p>
+<div *ngIf="projectCard else loading">
+  <h1>{{projectCard.title}}</h1>
+  <div class="short-description" [innerHTML]="projectCard.description.short | mdToHtml:'no-paragraph':'keep-newlines'"></div>
+  TRAILER/GALLERY {{projectCard.trailer}}
+  <div class="long-description" [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph':'keep-newlines'"></div>
+</div>
+
+
+
+
+<ng-template #loading>
+  <div center-wrapper>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
