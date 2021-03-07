@@ -1,7 +1,7 @@
 <div *ngIf="projectCard else loading">
   <h1>{{projectCard.title}}</h1>
   <div class="short-description" [innerHTML]="projectCard.description.short | mdToHtml:'no-paragraph':'keep-newlines'"></div>
-  TRAILER/GALLERY {{projectCard.trailer}}
+  <div *ngIf="projectCard.trailer | youtubeExtractID"><app-youtube-video [videoID]="projectCard.trailer | youtubeExtractID"></app-youtube-video></div>
   <div class="long-description" [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph':'keep-newlines'"></div>
 </div>
 

@@ -22,7 +22,9 @@ import { NewlineToBreakPipe } from './pipes/newline-to-break.pipe'
 import { ReplaceSpacesPipe } from './pipes/replace-spaces.pipe'
 import { ProjectPageComponent } from './project-page/project-page.component'
 import { ProjectsComponent } from './projects/projects.component';
-import { ThemeToggleComponent } from './elements/theme-toggle/theme-toggle.component'
+import { ThemeToggleComponent } from './elements/theme-toggle/theme-toggle.component';
+import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
+import { YoutubeExtractIDPipe } from './pipes/youtube-extract-id.pipe'
 
 @NgModule({
     declarations: [
@@ -35,7 +37,9 @@ import { ThemeToggleComponent } from './elements/theme-toggle/theme-toggle.compo
         ProjectsComponent,
         ProjectPageComponent,
         ReplaceSpacesPipe,
-        ThemeToggleComponent
+        ThemeToggleComponent,
+        YoutubeVideoComponent,
+        YoutubeExtractIDPipe
     ],
     imports: [
         BrowserModule,
