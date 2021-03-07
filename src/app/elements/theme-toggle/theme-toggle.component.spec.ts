@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ThemeToggleComponent } from './theme-toggle.component';
 
@@ -6,7 +6,7 @@ describe('ThemeToggleComponent', () => {
   let component: ThemeToggleComponent;
   let fixture: ComponentFixture<ThemeToggleComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ThemeToggleComponent ]
     })
