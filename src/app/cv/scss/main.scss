@@ -7,20 +7,13 @@
 /*****************************/
 
 .cv-main {
-  position: fixed;
-  top: 50px;
-  left: var(--sidebar-width);
-  right: 0px;
-  bottom: 0px;
-  overflow-y: scroll;
+  padding-top: 0.1px;
+  margin-left: var(--sidebar-width);
 }
 
 .slim .cv-main {
-  position: relative;
-  overflow-y: visible;
   box-shadow: none;
-  left: 0;
-  width: 100%;
+  margin-left: 0;
 }
 
 .cv-main li h2 {
