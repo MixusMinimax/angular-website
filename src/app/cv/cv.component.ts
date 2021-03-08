@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core'
 import { Observable } from 'rxjs'
-import { ContentfulService } from '../common/contentful.service'
-import { CV } from '../common/cv'
+import { ContentfulService } from '../common/services/contentful.service'
+import { CV } from '../common/models/cv'
 
 @Component({
   selector: 'app-cv',

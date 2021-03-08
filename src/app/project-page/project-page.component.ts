@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { ActivatedRoute } from '@angular/router'
-import { ProjectCard, ProjectsService } from '../common/projects.service'
-import { ReplaceSpacesPipe } from '../pipes/replace-spaces.pipe'
+import { ProjectCard, ProjectsService } from '../common/services/projects.service'
+import { ReplaceSpacesPipe } from '../common/pipes/replace-spaces.pipe'
 
 @Component({
     selector: 'app-project-page',
@@ -20,6 +20,7 @@ export class ProjectPageComponent implements OnInit {
     ) { }
 
     projectCard: ProjectCard
+    width: number
 
     ngOnInit(): void {
         this.route.paramMap.subscribe(m => {
@@ -29,5 +30,14 @@ export class ProjectPageComponent implements OnInit {
                 console.log('Title:', this.projectCard?.title)
             })
         })
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event?: any): void {
+        this.width = (event?.target || window).innerWidth
+    }
+
+    isSlim(): boolean {
+        return this.width < 700
     }
 }

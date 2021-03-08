@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { createClient } from 'contentful'
 import { from, Observable } from 'rxjs'
-import { CV } from './cv'
-import cvMock from './mock/cv.json'
-import schemaJson from './schemas/cv.schema.json'
-import { isValid, makeValidator } from './validation'
+import { CV } from '../models/cv'
+import cvMock from '../mock/cv.json'
+import schemaJson from '../schemas/cv.schema.json'
+import { isValid, makeValidator } from '../models/validation'
 
 const CONFIG = {
     space: 'bp893k004d65',

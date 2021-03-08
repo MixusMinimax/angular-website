@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { Router } from '@angular/router'
 import { Observable } from 'rxjs'
-import { ThemeService } from '../common/theme.service'
+import { ThemeService } from '../common/services/theme.service'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
 enum NavButtonStatus {

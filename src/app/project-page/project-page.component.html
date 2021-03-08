@@ -1,26 +1,58 @@
-<div *ngIf="projectCard else loading">
-  <div class="project-description">
-    <h1>{{projectCard.title}}</h1>
-    <hr>
-    <h2>Synopsis</h2> 
-    <div class="short-description" [innerHTML]="projectCard.description.short | mdToHtml:'no-paragraph':'keep-newlines'">
+<div *ngIf="projectCard else loading" (window:resize)="onResize($event)">
+  <div class="project-page">
+    <div *ngIf="isSlim()" class="mobile-version">
+      <h1>{{projectCard.title}}</h1>
+      <hr>
+      <h2>Synopsis</h2>
+      <div class="short-description"
+        [innerHTML]="projectCard.description.short | mdToHtml:'no-paragraph':'keep-newlines'">
+      </div>
+      <div *ngIf="projectCard.trailer | youtubeExtractID" class="project-trailer">
+        <hr>
+        <h2>Trailer</h2>
+        <app-youtube-video [videoID]="projectCard.trailer | youtubeExtractID"></app-youtube-video>
+      </div>
+      <hr>
+      <h2>Gallery</h2>
+      <mat-carousel autoplay=true proportion=56 [maintainAspectRatio]="true" [hideArrows]="false"
+        [hideIndicators]="false" [useKeyboard]="true">
+        <mat-carousel-slide *ngFor="let item of projectCard.gallery" class="carousel-cell" [image]="item.url">
+        </mat-carousel-slide>
+      </mat-carousel>
+      <hr>
+      <h2>Full Description</h2>
+      <div class="long-description"
+        [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph':'keep-newlines'">
+      </div>
     </div>
-    <hr>
-    <h2>Full Description</h2>
-    <div class="long-description" [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph':'keep-newlines'">
+
+    <div *ngIf="!isSlim()" class="desktop-version">
+      <div class="project-description">
+        <h1>{{projectCard.title}}</h1>
+        <hr>
+        <h2>Synopsis</h2>
+        <div class="short-description"
+          [innerHTML]="projectCard.description.short | mdToHtml:'no-paragraph':'keep-newlines'">
+        </div>
+        <hr>
+        <h2>Full Description</h2>
+        <div class="long-description"
+          [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph':'keep-newlines'">
+        </div>
+      </div>
+      <div class="project-gallery">
+        <div *ngIf="projectCard.trailer | youtubeExtractID" class="project-trailer">
+          <h2>Trailer</h2>
+          <app-youtube-video [videoID]="projectCard.trailer | youtubeExtractID"></app-youtube-video>
+        </div>
+        <h2>Gallery</h2>
+        <mat-carousel autoplay=true proportion=56 [maintainAspectRatio]="true" [hideArrows]="false"
+          [hideIndicators]="false" [useKeyboard]="true">
+          <mat-carousel-slide *ngFor="let item of projectCard.gallery" class="carousel-cell" [image]="item.url">
+          </mat-carousel-slide>
+        </mat-carousel>
+      </div>
     </div>
-  </div>
-  <div class="project-gallery">
-    <div *ngIf="projectCard.trailer | youtubeExtractID">
-      <h2>Trailer</h2>
-      <app-youtube-video [videoID]="projectCard.trailer | youtubeExtractID"></app-youtube-video>
-    </div>
-    <h2>Gallery</h2>
-    <mat-carousel autoplay=true proportion=56 [maintainAspectRatio]="true" [hideArrows]="false" [hideIndicators]="false"
-      [useKeyboard]="true">
-      <mat-carousel-slide *ngFor="let item of projectCard.gallery" class="carousel-cell" [image]="item.url">
-      </mat-carousel-slide>
-    </mat-carousel>
   </div>
 </div>
 

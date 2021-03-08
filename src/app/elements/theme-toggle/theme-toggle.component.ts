@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import { Observable } from 'rxjs'
-import { ThemeService } from 'src/app/common/theme.service'
+import { ThemeService } from '../../common/services/theme.service'
 
 @Component({
     selector: 'app-theme-toggle',

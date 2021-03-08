@@ -18,14 +18,14 @@ import { AppComponent } from './app.component'
 import { CvComponent } from './cv/cv.component'
 import { HomeComponent } from './home/home.component'
 import { NavbarComponent } from './navbar/navbar.component'
-import { MdToHtmlPipe } from './pipes/md-to-html.pipe'
-import { NewlineToBreakPipe } from './pipes/newline-to-break.pipe'
-import { ReplaceSpacesPipe } from './pipes/replace-spaces.pipe'
+import { MdToHtmlPipe } from './common/pipes/md-to-html.pipe'
+import { NewlineToBreakPipe } from './common/pipes/newline-to-break.pipe'
+import { ReplaceSpacesPipe } from './common/pipes/replace-spaces.pipe'
 import { ProjectPageComponent } from './project-page/project-page.component'
 import { ProjectsComponent } from './projects/projects.component';
 import { ThemeToggleComponent } from './elements/theme-toggle/theme-toggle.component';
 import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
-import { YoutubeExtractIDPipe } from './pipes/youtube-extract-id.pipe'
+import { YoutubeExtractIDPipe } from './common/pipes/youtube-extract-id.pipe'
 
 @NgModule({
     declarations: [
