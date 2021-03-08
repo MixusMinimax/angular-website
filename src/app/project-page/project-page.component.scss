@@ -1,3 +1,45 @@
 .mat-progress-spinner circle {
     stroke: #aaaa!important;
 }
+
+
+
+$galleryPadding: 40px;
+$galleryWidth: min(50vw, 70vh);
+$galleryWidthInside: calc(#{$galleryWidth} - #{$galleryPadding * 2});
+$imgHeight: calc(9.0 / 16.0 * (#{$galleryWidth} - #{$galleryPadding * 2}));
+
+.project-description {
+    margin-left: $galleryWidth;
+    padding: $galleryPadding;
+
+    h1 {
+        font-size: 2.5em;
+        font-weight: bold;
+    }
+}
+
+.project-gallery {
+    background-color: #fafaff08;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    width: $galleryWidthInside;
+    padding: $galleryPadding;
+
+    app-youtube-video {
+        width: 100%;
+        iframe {
+            width: 100%;
+            height: $imgHeight;
+        }
+    }
+
+    h2 {
+        margin-bottom: 0.2em;
+    }
+    h2:not(:first-child) {
+        margin-top: 0.5em;
+    }
+}

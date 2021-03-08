@@ -9,6 +9,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatCarouselModule } from '@ngbmodule/material-carousel'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
@@ -56,6 +57,7 @@ import { YoutubeExtractIDPipe } from './pipes/youtube-extract-id.pipe'
         MatProgressSpinnerModule,
         FlexLayoutModule,
         FontAwesomeModule,
+        MatCarouselModule,
     ],
     providers: [
         ReplaceSpacesPipe
