@@ -10,6 +10,8 @@
     // ==============================================
 
     .project-description {
+        font-size: 1.35em;
+        line-height: 1.35em;
         img {
             width: 100%;
         }
@@ -22,7 +24,7 @@
     .desktop-version {
 
         $galleryPadding: 40px;
-        $galleryWidth: min(50vw, 70vh);
+        $galleryWidth: min(max(550px, 40vw), 70vh);
         $galleryWidthInside: calc(#{$galleryWidth} - #{$galleryPadding * 2});
         $imgHeight: calc(9.0 / 16.0 * (#{$galleryWidth} - #{$galleryPadding * 2}));
 
@@ -33,6 +35,14 @@
             h1 {
                 font-size: 2.5em;
                 font-weight: bold;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            hr {
+                margin-bottom: 20px;
             }
         }
 

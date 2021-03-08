@@ -29,6 +29,7 @@ export class ProjectPageComponent implements OnInit {
                 this.titleService.setTitle(`Maxi - ${this.projectCard?.title}`)
             })
         })
+        this.onResize()
     }
 
     @HostListener('window:resize', ['$event'])
@@ -36,7 +37,7 @@ export class ProjectPageComponent implements OnInit {
         this.width = (event?.target || window).innerWidth
     }
 
-    isSlim(): boolean {
-        return this.width < 700
+    isMobile(): boolean {
+        return this.width < 1200
     }
 }
