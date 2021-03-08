@@ -60,7 +60,8 @@ import { YoutubeExtractIDPipe } from './common/pipes/youtube-extract-id.pipe'
         MatCarouselModule,
     ],
     providers: [
-        ReplaceSpacesPipe
+        YoutubeExtractIDPipe,
+        ReplaceSpacesPipe,
     ],
     bootstrap: [AppComponent]
 })

@@ -27,7 +27,6 @@ export class ProjectPageComponent implements OnInit {
             this.projectsService.getProjects().subscribe(projects => {
                 this.projectCard = projects.find(p => m.get('title') === this.replaceSpaces.transform(p.title, 'lower'))
                 this.titleService.setTitle(`Maxi - ${this.projectCard?.title}`)
-                console.log('Title:', this.projectCard?.title)
             })
         })
     }

@@ -28,8 +28,8 @@ export class ProjectsService extends ContentfulService {
                 title: string,
                 preview: Asset,
                 trailer?: string,
-                shortDescription: RichTextContent,
-                fullDescription: RichTextContent,
+                shortDescription?: string,
+                fullDescription?: string,
                 gallery: Asset[],
                 codeSource: string,
                 gameSource: string
@@ -40,8 +40,8 @@ export class ProjectsService extends ContentfulService {
                     preview: fields.preview.fields.file.url,
                     trailer: fields.trailer,
                     description: {
-                        short: documentToHtmlString(fields.shortDescription as any),
-                        full: documentToHtmlString(fields.fullDescription as any)
+                        short: fields.shortDescription ?? '',
+                        full: fields.fullDescription ?? ''
                     },
                     gallery: (fields.gallery ?? []).map(asset => ({
                         title: asset.fields.title,
