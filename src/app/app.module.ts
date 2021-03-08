@@ -26,6 +26,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ThemeToggleComponent } from './elements/theme-toggle/theme-toggle.component';
 import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
 import { YoutubeExtractIDPipe } from './common/pipes/youtube-extract-id.pipe'
+import { MathJaxDirective, MathJaxModule } from 'ngx-mathjax'
 
 @NgModule({
     declarations: [
@@ -58,6 +59,11 @@ import { YoutubeExtractIDPipe } from './common/pipes/youtube-extract-id.pipe'
         FlexLayoutModule,
         FontAwesomeModule,
         MatCarouselModule,
+        MathJaxModule.forRoot({
+            version: '2.7.5',
+            config: 'TeX-AMS_HTML',
+            hostname: 'cdnjs.cloudflare.com'
+        }),
     ],
     providers: [
         YoutubeExtractIDPipe,

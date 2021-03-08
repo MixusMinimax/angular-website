@@ -36,8 +36,8 @@
         </div>
         <hr>
         <h2>Full Description</h2>
-        <div class="long-description"
-          [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">
+        <div mathjax class="long-description"
+          [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">mathjax typesetting
         </div>
       </div>
       <div class="project-gallery">
