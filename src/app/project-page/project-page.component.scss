@@ -14,6 +14,12 @@
         font-size: 1.35em;
         line-height: 1.35em;
 
+        code {
+            display: inline-block;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
         img {
             width: 100%;
         }
@@ -113,6 +119,12 @@
         
         hr {
             margin: 15px 10px;
+        }
+
+        .project-description {
+            hr {
+                margin: 15px -5px;
+            }
         }
 
         .project-trailer {
