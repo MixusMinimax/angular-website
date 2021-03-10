@@ -9,6 +9,6 @@ export class YoutubeExtractIDPipe implements PipeTransform {
         let id = value?.match(
             /^(?:(?:https?:)?\/\/)?(?:(?:youtu\.be\/)|(?:www\.youtube\.com\/watch\?(?:[^=v]+=[^?]+&)*v=))?(?<id>(?:\w|-){11})$/
             )
-        return id?.groups?.id;
+        return id?.groups?.id
     }
 }

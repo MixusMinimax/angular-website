@@ -26,7 +26,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ThemeToggleComponent } from './elements/theme-toggle/theme-toggle.component';
 import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
 import { YoutubeExtractIDPipe } from './common/pipes/youtube-extract-id.pipe'
-import { MathJaxDirective, MathJaxModule } from 'ngx-mathjax'
+import { MathJaxDirective, MathJaxModule } from 'ngx-mathjax';
+import { ToSafeHtmlPipe } from './common/pipes/to-safe-html.pipe'
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { MathJaxDirective, MathJaxModule } from 'ngx-mathjax'
         ReplaceSpacesPipe,
         ThemeToggleComponent,
         YoutubeVideoComponent,
-        YoutubeExtractIDPipe
+        YoutubeExtractIDPipe,
+        ToSafeHtmlPipe
     ],
     imports: [
         BrowserModule,
@@ -68,6 +70,7 @@ import { MathJaxDirective, MathJaxModule } from 'ngx-mathjax'
     providers: [
         YoutubeExtractIDPipe,
         ReplaceSpacesPipe,
+        ToSafeHtmlPipe,
     ],
     bootstrap: [AppComponent]
 })

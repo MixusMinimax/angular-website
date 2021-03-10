@@ -17,7 +17,6 @@ export class ReplaceSpacesPipe implements PipeTransform {
         if (args.includes('upper')) {
             ret = ret.toUpperCase()
         }
-
         return ret
     }
 }

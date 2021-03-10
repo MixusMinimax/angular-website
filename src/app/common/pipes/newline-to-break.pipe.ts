@@ -1,10 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core'
+import { SafeHtml } from '@angular/platform-browser'
+import { ToSafeHtmlPipe } from './to-safe-html.pipe'
 
 @Pipe({
-  name: 'newlineToBreak'
+    name: 'newlineToBreak'
 })
 export class NewlineToBreakPipe implements PipeTransform {
-  transform(value: unknown, ...args: unknown[]): string {
-    return (value as string).replace(/\n/g, '<br/>')
-  }
+
+    constructor(
+        protected toSafeHtml: ToSafeHtmlPipe,
+    ) { }
+
+    transform(value: string, ...args: unknown[]): SafeHtml {
+        return this.toSafeHtml.transform(value.replace(/\n/g, '<br/>'))
+    }
 }

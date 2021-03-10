@@ -21,8 +21,8 @@
       </mat-carousel>
       <hr>
       <h2>Full Description</h2>
-      <div class="project-description long-description"
-        [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">
+      <div mathjax class="project-description long-description"
+        [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">mathjax typesetting
       </div>
     </div>
 
