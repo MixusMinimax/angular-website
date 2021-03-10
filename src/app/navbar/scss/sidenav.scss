@@ -7,13 +7,13 @@
     bottom: 0;
     left: calc(-1 * var(--width));
     width: var(--width);
-    background-color: white;
+    background-color: rgb(249, 252, 255);
     z-index: 2;
     transition: left 100ms ease-in-out;
 }
 
 .dark-theme .sidenav {
-    background-color: #222;
+    background-color: rgb(34, 34, 33);
 }
 
 .sidenav.open {
@@ -27,18 +27,40 @@
         width: 100%;
         border-radius: 0;
         margin-left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        vertical-align: middle;
+
+        span {
+            opacity: 0.6;
+            vertical-align: middle;
+            font-size: 1.2em;
+            color: black;
+        }
+
+        fa-icon {
+            display: inline-block;
+            width: 25px;
+            opacity: 0.6;
+            margin-right: 10px;
+        }
     }
-    button span {
-        margin: auto;
-        vertical-align: top;
-        font-size: 1.2em;
-        color: black;
-    }
+
     button.main span {
         font-size: 1.3em;
     }
+
     button.selected {
         background-color: #8883;
+
+        span {
+            opacity: 1;
+        }
+
+        fa-icon {
+            opacity: 1;
+        }
     }
 }
 

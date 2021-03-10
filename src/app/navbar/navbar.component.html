@@ -20,8 +20,9 @@
 
   <div [class.open]="isSideNavOpen" class="sidenav">
     <button *ngFor="let but of navButtons" mat-button [disabled]="but.status === 'disabled'"
-      [class.main]="but.type === 'main'" [class.selected]="but.status === 'selected'" routerLink="{{ but.path }}"
+      [class.selected]="but.status === 'selected'" routerLink="{{ but.path }}"
       (click)="onNavButtonClick(but)">
+      <fa-icon *ngIf="but.icon" [icon]="but.icon"></fa-icon>
       <span>{{ but.title }}</span>
     </button>
   </div>

@@ -1,0 +1,14 @@
+div {
+  display: flexbox;
+  flex-direction: column;
+
+  img.wip-icon {
+    max-width: 70%;
+    max-height: 50%;
+  }
+
+  p {
+    font-size: 1.5em;
+    text-align: center;
+  }
+}

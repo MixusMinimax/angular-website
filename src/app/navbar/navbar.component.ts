@@ -1,9 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { Router } from '@angular/router'
+import { faHome, faBook, faThList, IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import { Observable } from 'rxjs'
 import { ThemeService } from '../common/services/theme.service'
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
 enum NavButtonStatus {
     SELECTED = 'selected',
@@ -21,17 +21,19 @@ interface NavButton {
     path: string,
     type: NavButtonType,
     status: NavButtonStatus,
+    icon?: IconDefinition,
 }
 
 class NavButton implements NavButton {
     constructor(
-        { title, path, type = NavButtonType.COMMON, status = NavButtonStatus.ENABLED }:
-            { title: string, path: string, type?: NavButtonType, status?: NavButtonStatus }
+        { title, path, type = NavButtonType.COMMON, status = NavButtonStatus.ENABLED, icon }:
+            { title: string, path: string, type?: NavButtonType, status?: NavButtonStatus, icon?: IconDefinition }
     ) {
         this.title = title
         this.path = path
         this.type = type
         this.status = status
+        this.icon = icon
     }
 }
 
@@ -42,13 +44,10 @@ class NavButton implements NavButton {
 })
 export class NavbarComponent implements OnInit {
 
-    faSun = faSun
-    faMoon = faMoon
-
     navButtons: NavButton[] = [
-        new NavButton({ title: 'Home', path: '/', type: NavButtonType.MAIN }),
-        new NavButton({ title: 'CV', path: '/cv' }),
-        new NavButton({ title: 'Projects', path: '/projects' }),
+        new NavButton({ title: 'Home', path: '/', type: NavButtonType.MAIN, icon: faHome }),
+        new NavButton({ title: 'CV', path: '/cv', icon: faBook }),
+        new NavButton({ title: 'Projects', path: '/projects', icon: faThList }),
     ]
 
     selectedNavButton: NavButton
