@@ -46,6 +46,6 @@
       <span class="title">{{ row.title }}</span>
       <span class="spacer" [class.dots]="dots"></span>
     </div>
-    <span class="body" [innerHTML]="row.body | newlineToBreak | mdToHtml"></span>
+    <span class="body" [innerHTML]="row.body | mdToHtml:'keep-newlines'"></span>
   </div>
 </ng-template>
