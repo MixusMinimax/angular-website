@@ -62,6 +62,7 @@ app-cv {
   }
 
   li.listItem div .body {
+    overflow-x: hidden;
     opacity: 0.8;
     text-align: left;
     line-height: 1.3;

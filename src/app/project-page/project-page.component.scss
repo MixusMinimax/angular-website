@@ -51,6 +51,13 @@
             font-size: 1em;
             opacity: 0.6;
         }
+
+        .MathJax_Display {
+            overflow-x: auto;
+            > span > nobr > span {
+                overflow-y: hidden;
+            }
+        }
     }
 
     // ==============================================
