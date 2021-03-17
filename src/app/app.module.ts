@@ -68,7 +68,7 @@ import { YoutubeVideoComponent } from './youtube-video/youtube-video.component'
         MathJaxModule.forRoot({
             version: '2.7.5',
             config: 'TeX-AMS_HTML',
-            hostname: 'cdnjs.cloudflare.com'
+            hostname: 'cdnjs.cloudflare.com',
         }),
     ],
     providers: [
