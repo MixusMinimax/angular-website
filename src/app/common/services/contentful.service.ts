@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
-import { createClient, CreateClientParams } from 'contentful'
+import { createClient, CreateClientParams, Entry } from 'contentful'
 import { from, Observable } from 'rxjs'
-import { CV } from '../models/cv'
 import cvMock from '../mock/cv.json'
-import schemaJson from '../schemas/cv.schema.json'
+import { CV } from '../models/cv'
 import { isValid, makeValidator } from '../models/validation'
+import schemaJson from '../schemas/cv.schema.json'
 
 const CONFIG: CreateClientParams = {
     space: 'bp893k004d65',
@@ -39,5 +39,22 @@ export class ContentfulService {
                 }
             }
         }))
+    }
+
+    getList<EntryType>(title: string): Observable<EntryType[]> {
+        return from(this.client.getEntries<{
+            title: string,
+            references: Entry<any>[]
+        }>({
+            content_type: 'list',
+            'fields.title[match]': title
+        }).then(res => {
+            const result = res?.items?.[0]?.fields
+            if (result) {
+                return result.references.map(e => e.fields)
+            } else {
+                return []
+            }
+        }).catch(() => []))
     }
 }

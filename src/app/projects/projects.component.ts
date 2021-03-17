@@ -31,10 +31,6 @@ export class ProjectsComponent implements OnInit {
         })
     }
 
-    private getProjects(): Observable<ProjectCard[]> {
-        return this.projectsService.getProjects()
-    }
-
     openLink(link: string): void {
         window.open(link)
     }
