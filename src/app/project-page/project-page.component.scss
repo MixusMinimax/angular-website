@@ -60,6 +60,14 @@
         }
     }
 
+    mat-carousel {
+        .carousel-slide-content {
+            background-color: #00000040;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
     // ==============================================
     // =============[ DESKTOP VERSION ]==============
     // ==============================================
@@ -112,7 +120,7 @@
 
     .mobile-version {
         
-        > div, h1, h2 {
+        > div, > h1, > h2 {
             margin-left: 20px;
             margin-right: 20px;
         }
@@ -130,6 +138,10 @@
         }
 
         .project-description {
+
+            margin-left: 20px;
+            margin-right: 20px;
+
             hr {
                 margin: 15px -5px;
             }
@@ -140,22 +152,35 @@
             }
         }
 
-        .project-trailer {
+        .project-gallery
+        {
+            font-size: 1.35em;
+            
             margin: 0;
 
-            app-youtube-video {
-                margin: 0;
-                width: 100%;
+            h2 {
+                margin-left: 20px;
+                margin-right: 20px;
+                font-size: 1.4em;
+                font-weight: bold;
+                opacity: 0.8;
+            }
 
-                iframe {
+            .project-trailer {
+
+                app-youtube-video {
                     width: 100%;
-                    height: calc(9.0 / 16.0 * 100vw);
+
+                    iframe {
+                        width: 100%;
+                        height: calc(9.0 / 16.0 * 100vw);
+                    }
                 }
             }
-        }
 
-        mat-carousel {
-            margin: 0;
+            mat-carousel {
+                margin-left: 0;
+            }
         }
     }
 }
