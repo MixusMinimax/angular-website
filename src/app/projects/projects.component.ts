@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { faGithub, faGitlab } from '@fortawesome/free-brands-svg-icons'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
-import { Observable } from 'rxjs'
 import * as utils from '../../utils/string'
-import { ProjectCard, ProjectsService } from '../common/services/projects.service'
+import { ProjectCard } from '../common/models/project-card'
+import { ProjectsService } from '../common/services/projects.service'
 
 @Component({
     selector: 'app-projects',

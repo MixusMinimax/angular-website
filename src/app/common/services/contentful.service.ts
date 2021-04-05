@@ -3,15 +3,11 @@ import { createClient, CreateClientParams, Entry } from 'contentful'
 import { from, Observable } from 'rxjs'
 import cvMock from '../mock/cv.json'
 import { CV } from '../models/cv'
-import { isValid, makeValidator } from '../models/validation'
-import schemaJson from '../schemas/cv.schema.json'
 
 const CONFIG: CreateClientParams = {
     space: 'bp893k004d65',
     accessToken: 'P0yhCtlkmn78L5wM3dSY39iE5JcKAfBxMtAwHKl_0ow',
 }
-
-const cvValidator = makeValidator<CV>(schemaJson)
 
 @Injectable({
     providedIn: 'root'
@@ -29,10 +25,10 @@ export class ContentfulService {
         }).catch(() => null).then(res => {
             const result = res?.items?.[0]?.fields
             console.log(result)
-            if (result && isValid(cvValidator, result)) {
+            if (result) {
                 return result
             } else {
-                if (isValid(cvValidator, cvMock)) {
+                if (cvMock) {
                     return cvMock
                 } else {
                     return null

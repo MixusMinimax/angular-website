@@ -31,13 +31,11 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@ngbmodule/material-carousel": "^0.7.1",
     "@types/marked": "^1.2.2",
-    "ajv": "^6.12.6",
     "contentful": "^8.1.8",
     "marked": "^2.0.1",
     "ngx-mathjax": "0.0.13",
     "rxjs": "~6.6.6",
     "tslib": "^2.1.0",
-    "typescript-json-schema": "^0.43.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

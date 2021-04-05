@@ -22,12 +22,6 @@ export interface CVSection {
 export interface CV {
     icon?: Image,
     name: string,
-    /**
-     * @TJS-default []
-     */
     personalInfo: CVLine[],
-    /**
-     * @TJS-default []
-     */
     sections: CVSection[]
 }

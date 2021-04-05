@@ -1,20 +1,9 @@
 import { Injectable } from '@angular/core'
 import { Asset } from 'contentful'
-import { from, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
+import { ProjectCard } from '../models/project-card'
 import { ContentfulService } from './contentful.service'
-
-export interface ProjectCard {
-    title: string,
-    preview: string,
-    trailer?: string,
-    description: { short: string, full: string },
-    gallery: { title: string, description: string, url: string }[]
-    links?: {
-        code?: string,
-        game?: string,
-    }
-}
 
 @Injectable({
     providedIn: 'root'
