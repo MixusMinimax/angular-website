@@ -33,4 +33,10 @@ export class CvService extends ContentfulService {
             }
         }).catch(() => null))
     }
+
+    populateSections(cv: CV): void {
+        cv.personalInfo ??= []
+        cv.sections ??= []
+        // TODO
+    }
 }

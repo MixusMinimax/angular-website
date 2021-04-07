@@ -22,6 +22,7 @@ export class CvComponent implements OnInit {
     this.cvService.getCV('Maxi Barmetler').subscribe(val => {
       console.log(val)
       this.cv = val
+      this.cvService.populateSections(this.cv)
     })
 
     this.onResize()
