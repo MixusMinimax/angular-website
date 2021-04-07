@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core'
-import { CV_old } from '../common/models/cv'
+import { CV, CV_old } from '../common/models/cv'
 import { CvService } from '../common/services/cv.service'
 
 @Component({
@@ -10,6 +10,7 @@ import { CvService } from '../common/services/cv.service'
 })
 export class CvComponent implements OnInit {
 
+  cv: CV
   cv_old: CV_old
 
   width: number
@@ -19,8 +20,11 @@ export class CvComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cvService.getCV_old().subscribe(val => {
+    this.cvService.getCV('Maxi Barmetler').subscribe(val => {
       console.log(val)
+      this.cv = val
+    })
+    this.cvService.getCV_old().subscribe(val => {
       this.cv_old = val
     })
 
