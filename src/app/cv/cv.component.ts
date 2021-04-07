@@ -11,7 +11,6 @@ import { CvService } from '../common/services/cv.service'
 export class CvComponent implements OnInit {
 
   cv: CV
-  cv_old: CV_old
 
   width: number
 
@@ -23,9 +22,6 @@ export class CvComponent implements OnInit {
     this.cvService.getCV('Maxi Barmetler').subscribe(val => {
       console.log(val)
       this.cv = val
-    })
-    this.cvService.getCV_old().subscribe(val => {
-      this.cv_old = val
     })
 
     this.onResize()

@@ -18,24 +18,6 @@ export class ContentfulService {
 
     constructor() { }
 
-    getCV_old(): Observable<CV_old> {
-        return from(this.client.getEntries({
-            content_type: 'cv',
-            'fields.name[match]': 'Maxi Barmetler'
-        }).catch(() => null).then(res => {
-            const result = res?.items?.[0]?.fields
-            if (result) {
-                return result
-            } else {
-                if (cvMock) {
-                    return cvMock
-                } else {
-                    return null
-                }
-            }
-        }))
-    }
-
     getList<EntryType>(title: string): Observable<EntryType[]> {
         return from(this.client.getEntries<{
             title: string,

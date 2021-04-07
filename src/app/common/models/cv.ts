@@ -29,5 +29,7 @@ export interface CV {
     name: string,
     icon?: Image,
     summary: string,
-    content: string
+    content: string,
+    personalInfo?: CVLine[],
+    sections?: CVSection[],
 }

@@ -1,24 +1,24 @@
 <div (window:resize)="onResize()" [class.slim]="isSlim()" [class.xSlim]="isExtremelySlim()">
   <div class="sidebar">
-    <div *ngIf="cv_old else loading">
+    <ng-container *ngIf="cv else loading">
       <ul class="about">
         <li>
-          <img class="circle" src="{{ cv_old.icon.fields.file.url }}" alt="{{ cv_old.name }}">
+          <img class="circle" src="{{ cv.icon.url }}" alt="{{ cv.name }}">
         </li>
         <li>
-          <h1>{{ cv_old.name }}</h1>
+          <h1>{{ cv.name }}</h1>
         </li>
-        <li *ngFor="let row of cv_old.personalInfo" class="listItem">
+        <li *ngFor="let row of cv.personalInfo || []" class="listItem">
           <ng-container *ngTemplateOutlet="listItem; context: { row: row }"></ng-container>
         </li>
       </ul>
-    </div>
+    </ng-container>
   </div>
 
   <div class="cv-main">
-    <div *ngIf="cv_old else loading">
+    <ng-container *ngIf="cv else loading">
       <ul class="sections">
-        <li *ngFor="let section of cv_old.sections">
+        <li *ngFor="let section of cv.sections || []">
           <div>
             <h2>{{ section.title }}</h2>
             <ul class="sectionItems">
@@ -30,7 +30,7 @@
           </div>
         </li>
       </ul>
-    </div>
+    </ng-container>
   </div>
 </div>
 

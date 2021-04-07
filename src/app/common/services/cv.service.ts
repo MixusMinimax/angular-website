@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Asset } from 'contentful';
 import { from, Observable } from 'rxjs';
+import cvMock from '../mock/cv.json';
+import { Image } from '../models/base';
 import { CV } from '../models/cv';
 import { ContentfulService } from './contentful.service';
-import cvMock from '../mock/cv.json'
-import { Image } from '../models/base';
-import { Asset } from 'contentful';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CvService extends ContentfulService {
+
     getCV(name: string): Observable<CV> {
         return from(this.client.getEntries<{
             name: string,
