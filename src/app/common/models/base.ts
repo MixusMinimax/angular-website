@@ -11,11 +11,11 @@ export class Image {
         this.url = image.url
     }
 
-    static fromAsset(asset: Asset): Image {
-        return new Image({
+    static fromAsset(asset?: Asset): Image | null {
+        return asset ? new Image({
             title: asset.fields.title,
             description: asset.fields.description,
             url: asset.fields.file.url
-        });
+        }) : null;
     }
 }
