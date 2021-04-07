@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { createClient, CreateClientParams, Entry } from 'contentful'
 import { from, Observable } from 'rxjs'
 import cvMock from '../mock/cv.json'
-import { CV } from '../models/cv'
+import { CV_old } from '../models/cv'
 
 const CONFIG: CreateClientParams = {
     space: 'bp893k004d65',
@@ -18,13 +18,12 @@ export class ContentfulService {
 
     constructor() { }
 
-    getCV(): Observable<CV> {
+    getCV_old(): Observable<CV_old> {
         return from(this.client.getEntries({
             content_type: 'cv',
             'fields.name[match]': 'Maxi Barmetler'
         }).catch(() => null).then(res => {
             const result = res?.items?.[0]?.fields
-            console.log(result)
             if (result) {
                 return result
             } else {

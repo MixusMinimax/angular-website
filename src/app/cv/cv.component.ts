@@ -1,7 +1,6 @@
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core'
-import { Observable } from 'rxjs'
-import { ContentfulService } from '../common/services/contentful.service'
-import { CV } from '../common/models/cv'
+import { CV_old } from '../common/models/cv'
+import { CvService } from '../common/services/cv.service'
 
 @Component({
   selector: 'app-cv',
@@ -11,19 +10,18 @@ import { CV } from '../common/models/cv'
 })
 export class CvComponent implements OnInit {
 
-  // tslint:disable-next-line: variable-name
-  private _cv: Observable<CV>
-  cv: CV
+  cv_old: CV_old
 
   width: number
 
-  constructor(private cvService: ContentfulService) { }
+  constructor(
+    private cvService: CvService
+  ) { }
 
   ngOnInit(): void {
-    this._cv = this.cvService.getCV()
-    this._cv.subscribe(val => {
+    this.cvService.getCV_old().subscribe(val => {
       console.log(val)
-      this.cv = val
+      this.cv_old = val
     })
 
     this.onResize()

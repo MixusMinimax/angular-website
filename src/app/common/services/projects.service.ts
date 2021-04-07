@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Asset } from 'contentful'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
+import { Image } from '../models/base'
 import { ProjectCard } from '../models/project-card'
 import { ContentfulService } from './contentful.service'
 
@@ -29,11 +30,7 @@ export class ProjectsService extends ContentfulService {
                     short: fields.shortDescription ?? '',
                     full: fields.fullDescription ?? ''
                 },
-                gallery: (fields.gallery ?? []).map(asset => ({
-                    title: asset.fields.title,
-                    description: asset.fields.description,
-                    url: asset.fields.file.url
-                })),
+                gallery: (fields.gallery ?? []).map(Image.fromAsset),
                 links: {
                     code: fields.codeSource,
                     game: fields.gameSource

@@ -5,5 +5,5 @@ import { ContentfulService } from './contentful.service';
   providedIn: 'root'
 })
 export class CvService extends ContentfulService {
-
+  
 }

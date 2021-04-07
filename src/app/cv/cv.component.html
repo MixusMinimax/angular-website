@@ -1,14 +1,14 @@
 <div (window:resize)="onResize()" [class.slim]="isSlim()" [class.xSlim]="isExtremelySlim()">
   <div class="sidebar">
-    <div *ngIf="cv else loading">
+    <div *ngIf="cv_old else loading">
       <ul class="about">
         <li>
-          <img class="circle" src="{{ cv.icon.fields.file.url }}" alt="{{ cv.name }}">
+          <img class="circle" src="{{ cv_old.icon.fields.file.url }}" alt="{{ cv_old.name }}">
         </li>
         <li>
-          <h1>{{ cv.name }}</h1>
+          <h1>{{ cv_old.name }}</h1>
         </li>
-        <li *ngFor="let row of cv.personalInfo" class="listItem">
+        <li *ngFor="let row of cv_old.personalInfo" class="listItem">
           <ng-container *ngTemplateOutlet="listItem; context: { row: row }"></ng-container>
         </li>
       </ul>
@@ -16,9 +16,9 @@
   </div>
 
   <div class="cv-main">
-    <div *ngIf="cv else loading">
+    <div *ngIf="cv_old else loading">
       <ul class="sections">
-        <li *ngFor="let section of cv.sections">
+        <li *ngFor="let section of cv_old.sections">
           <div>
             <h2>{{ section.title }}</h2>
             <ul class="sectionItems">

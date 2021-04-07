@@ -1,4 +1,6 @@
-export interface Image {
+import { Image } from "./base";
+
+export interface Image_old {
     fields: {
         file: {
             url: string
@@ -13,15 +15,19 @@ export interface CVLine {
 
 export interface CVSection {
     title: string,
-    /**
-     * @TJS-default []
-     */
     lines: CVLine[]
 }
 
-export interface CV {
-    icon?: Image,
+export interface CV_old {
+    icon?: Image_old,
     name: string,
     personalInfo: CVLine[],
     sections: CVSection[]
+}
+
+export interface CV {
+    name: string,
+    icon?: Image,
+    summary: string,
+    content: string
 }
