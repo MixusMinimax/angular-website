@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core'
 import { createClient, CreateClientParams, Entry } from 'contentful'
 import { from, Observable } from 'rxjs'
-import cvMock from '../mock/cv.json'
-import { CV_old } from '../models/cv'
-
 const CONFIG: CreateClientParams = {
     space: 'bp893k004d65',
     accessToken: 'P0yhCtlkmn78L5wM3dSY39iE5JcKAfBxMtAwHKl_0ow',
