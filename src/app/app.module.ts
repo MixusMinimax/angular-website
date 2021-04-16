@@ -27,7 +27,8 @@ import { HomeComponent } from './home/home.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { ProjectPageComponent } from './project-page/project-page.component'
 import { ProjectsComponent } from './projects/projects.component'
-import { YoutubeVideoComponent } from './youtube-video/youtube-video.component'
+import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { YoutubeVideoComponent } from './youtube-video/youtube-video.component'
         ThemeToggleComponent,
         YoutubeVideoComponent,
         YoutubeExtractIDPipe,
-        ToSafeHtmlPipe
+        ToSafeHtmlPipe,
+        NotFoundComponent
     ],
     imports: [
         BrowserModule,
