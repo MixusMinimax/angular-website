@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core'
 import { Title } from '@angular/platform-browser'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { ProjectCard } from '../common/models/project-card'
 import { ReplaceSpacesPipe } from '../common/pipes/replace-spaces.pipe'
 import { ProjectsService } from '../common/services/projects.service'
@@ -14,10 +14,10 @@ import { ProjectsService } from '../common/services/projects.service'
 export class ProjectPageComponent implements OnInit {
 
     constructor(
+        private router: Router,
         private route: ActivatedRoute,
         private projectsService: ProjectsService,
         private titleService: Title,
-        private replaceSpaces: ReplaceSpacesPipe,
     ) { }
 
     projectCard: ProjectCard
@@ -25,9 +25,11 @@ export class ProjectPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.paramMap.subscribe(m => {
-            this.projectsService.getProjects().subscribe(projects => {
-                this.projectCard = projects.find(p => m.get('title') === this.replaceSpaces.transform(p.title, 'lower'))
-                this.titleService.setTitle(`Maxi - ${this.projectCard?.title}`)
+            this.projectsService.getProject(m.get('title')).subscribe(project => {
+                if (!project)
+                    this.router.navigate(['/not-found'])
+                this.projectCard = project
+                this.titleService.setTitle(`Maxi - ${this.projectCard?.title ?? '...'}`)
             })
         })
         this.onResize()
