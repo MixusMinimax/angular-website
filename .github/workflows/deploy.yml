@@ -102,5 +102,5 @@ jobs:
             docker run -d \
             --restart always \
             --name ${{ env.IMAGE_NAME }} \
-            --publish 8080:80
+            --publish 8080:80 \
             $IMAGE_TAG
