@@ -22,6 +22,9 @@ on:
 env:
   IMAGE_NAME: MixusMinimax/angular-website
   REGISTRY: ghcr.io
+  SSH_HOST: barmetler.com
+  SSH_PORT: 22
+  SSH_USERNAME: github
 
 jobs:
   build-and-push:
@@ -76,9 +79,9 @@ jobs:
       - name: Deploy to Digital Ocean using ssh
         uses: appleboy/ssh-action@v0.1.4
         with:
-          host: $${{ secrets.SSH_HOST }}
-          port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.SSH_USERNAME }}
+          host: $${{ env.SSH_HOST }}
+          port: ${{ env.SSH_PORT }}
+          username: ${{ env.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
             IMAGE_ID=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
