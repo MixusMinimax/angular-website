@@ -52,8 +52,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE_NAME }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          labels: ${{ (steps.meta.outputs.labels == github.event.repository.default_branch) && 'latest' || steps.meta.outputs.labels }}
 
   deploy:
     if: ${{ false }}
