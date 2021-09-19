@@ -91,19 +91,19 @@ jobs:
             # Strip git ref prefix from version
             VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
             # Strip "v" prefix from tag name
-            [ "${{ github.ref }}" == "refs/tags/"* ] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+            [ "${{ github.ref }}" = "refs/tags/"* ] && VERSION=$(echo $VERSION | sed -e 's/^v//')
             # Use Docker `latest` tag convention
-            [ "$VERSION" == "${{ github.event.repository.default_branch }}" ] && VERSION=latest
+            [ "$VERSION" = "${{ github.event.repository.default_branch }}" ] && VERSION=latest
             echo IMAGE_ID=$IMAGE_ID
             echo VERSION=$VERSION
 
             if [ "$(docker ps -q -f name=$IMAGE_NAME)" ]; then
-              docker rm -f $IMAGE_NAME
+              docker rm -f ${{ env.IMAGE_NAME }}
             fi
 
             docker pull $IMAGE_ID:$VERSION
             docker run -d \
             --restart always \
-            --name $IMAGE_NAME \
+            --name ${{ env.IMAGE_NAME }} \
             --publish 8080:80
             $IMAGE_ID:$VERSION
