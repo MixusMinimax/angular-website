@@ -20,7 +20,7 @@ on:
         default: "warning"
 
 env:
-  IMAGE_NAME: angularwebsite
+  IMAGE_NAME: MixusMinimax/angular-website
   REGISTRY: ghcr.io
 
 jobs:
