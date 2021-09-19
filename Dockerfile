@@ -4,9 +4,9 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY website/ website/
-COPY src/ src/
 COPY e2e/ e2e/
 COPY .browserslistrc angular.json karma.conf.js tsconfig.app.json tsconfig.json tsconfig.spec.json tslint.json ./
+COPY src/ src/
 RUN npm run build-prod
 
 ### Run ###
