@@ -57,17 +57,27 @@ export class CvService extends ContentfulService {
 
     private parseCVLines(lines: string[]): CVLine[] {
         let ret: CVLine[] = []
+        let last_was_list = false
         for (let line of lines) {
             if (!line.match(/^ *- .+$/)) continue
-
             let indentation = line.match(/^ */)[0].length / 2
-            if (indentation == 0) {
+            if (indentation === 0) {
                 ret.push({ title: line.match(/^ *- (.*)$/)[1], body: '' })
-            } else {
+            } else if (indentation === 1) {
                 let str = line.match(/^ *- (.*)$/)[1]
+                let i = ret.length - 1
+                if (ret[i].body) {
+                    if (last_was_list) ret[i].body += '\n'
+                    ret[i].body += '  \n'
+                }
+                ret[i].body += str
+                last_was_list = false
+            } else {
+                let str = line.substr(2)
                 let i = ret.length - 1
                 if (ret[i].body) ret[i].body += '\n'
                 ret[i].body += str
+                last_was_list = true
             }
         }
         return ret
