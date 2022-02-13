@@ -8,9 +8,9 @@
         <div class="short-description" [innerHTML]="projectCard.description.short | mdToHtml:'no-paragraph'">
         </div>
         <hr>
-        <ng-container *ngIf="!isMobile()" >
+        <ng-container *ngIf="!isMobile()">
           <h2>Full Description</h2>
-          <div mathjax class="long-description" [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">
+          <div [mathjax] class="long-description" [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">
             mathjax typesetting
           </div>
         </ng-container>
@@ -22,19 +22,26 @@
         </div>
         <hr *ngIf="isMobile()">
         <h2>Gallery</h2>
+        <ngb-carousel *ngIf="projectCard.gallery.length != 0">
+          <ng-template ngbSlide *ngFor="let image of projectCard.gallery">
+            <img src="{{image.url}}" alt="{{image.title}}">
+          </ng-template>
+        </ngb-carousel>
+        <!--
         <mat-carousel autoplay=true proportion=56 [maintainAspectRatio]="true" [hideArrows]="false"
           [hideIndicators]="false" [useKeyboard]="true" [loop]="false">
           <mat-carousel-slide *ngFor="let item of projectCard.gallery" class="carousel-cell" [hideOverlay]="true">
             <img src="{{item.url}}" alt="{{item.title}}">
           </mat-carousel-slide>
         </mat-carousel>
+        -->
       </div>
     </div>
 
     <div *ngIf="isMobile()" class="mobile-version">
       <hr>
       <h2>Full Description</h2>
-      <div mathjax class="project-description long-description"
+      <div [mathjax] class="project-description long-description"
         [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">mathjax typesetting
       </div>
     </div>
