@@ -31,7 +31,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@ngbmodule/material-carousel": "^0.7.1",
     "contentful": "^8.1.8",
-    "marked": "^2.0.1",
+    "marked": "^4.0.10",
     "ngx-mathjax": "0.0.13",
     "rxjs": "~6.6.6",
     "tslib": "^2.1.0",
