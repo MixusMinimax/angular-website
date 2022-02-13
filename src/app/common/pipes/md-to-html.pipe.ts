@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core'
 import { SafeHtml } from '@angular/platform-browser'
-import marked from 'marked'
+import { marked } from 'marked'
 import { NewlineToBreakPipe } from './newline-to-break.pipe'
 import { ToSafeHtmlPipe } from './to-safe-html.pipe'
 import { YoutubeExtractIDPipe } from './youtube-extract-id.pipe'
