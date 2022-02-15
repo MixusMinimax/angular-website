@@ -30,9 +30,15 @@
 						],
 						"styles": [
 							"src/theme.scss",
-							"src/styles.scss"
+							"src/styles.scss",
+							"node_modules/prismjs/themes/prism-okaidia.min.css"
 						],
-						"scripts": [],
+						"scripts": [
+							"node_modules/marked/marked.min.js",
+							"node_modules/prismjs/prism.js",
+							"node_modules/prismjs/components/prism-csharp.min.js",
+							"node_modules/prismjs/components/prism-css.min.js"
+						],
 						"vendorChunk": true,
 						"extractLicenses": false,
 						"buildOptimizer": false,

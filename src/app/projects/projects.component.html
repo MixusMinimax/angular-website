@@ -6,12 +6,12 @@
       [routerLink]="project.title | replaceSpaces:'lower'">
       <div class="preview">
         <img src="{{project.preview}}" alt="Preview: {{project.title}}">
-        <div class="description" [innerHTML]="project.description.short | mdToHtml:'no-paragraph':'keep-newlines'">
+        <div class="description" [innerHTML]="project.description.short | markdown">
         </div>
       </div>
       <div class="details flex-container">
         <div class="title">{{project.title}}
-          <div class="description" [innerHTML]="project.description.short | mdToHtml:'no-paragraph':'keep-newlines'">
+          <div class="description" [innerHTML]="project.description.short | markdown">
           </div>
         </div>
         <a *ngIf="project.links?.code" [ngSwitch]="true" [href]="project.links?.code" target="_blank"

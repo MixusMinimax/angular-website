@@ -7,6 +7,11 @@
     // =================[ GENERAL ]==================
     // ==============================================
 
+    :not(pre) > code {
+        font-size: 1.1em;
+        transform: translate(0, -.08em);
+    }
+
     .project-description {
         opacity: 0.8;
         font-size: 1.35em;

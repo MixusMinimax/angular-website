@@ -4,15 +4,13 @@
       <div class="project-description">
         <h1>{{projectCard.title}}</h1>
         <hr>
-        <h2>Synopsis</h2>
-        <div class="short-description" [innerHTML]="projectCard.description.short | mdToHtml:'no-paragraph'">
+        <h2>Description</h2>
+        <div [mathjax] class="short-description" [innerHTML]="projectCard.description.short | markdown">
         </div>
         <hr>
         <ng-container *ngIf="!isMobile()">
           <h2>Full Description</h2>
-          <div [mathjax] class="long-description" [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">
-            mathjax typesetting
-          </div>
+          <div [mathjax] class="long-description" [innerHtml]="projectCard.description.full | markdown | youtube"></div>
         </ng-container>
       </div>
       <div class="project-gallery">
@@ -27,14 +25,6 @@
             <img src="{{image.url}}" alt="{{image.title}}">
           </ng-template>
         </ngb-carousel>
-        <!--
-        <mat-carousel autoplay=true proportion=56 [maintainAspectRatio]="true" [hideArrows]="false"
-          [hideIndicators]="false" [useKeyboard]="true" [loop]="false">
-          <mat-carousel-slide *ngFor="let item of projectCard.gallery" class="carousel-cell" [hideOverlay]="true">
-            <img src="{{item.url}}" alt="{{item.title}}">
-          </mat-carousel-slide>
-        </mat-carousel>
-        -->
       </div>
     </div>
 
@@ -42,7 +32,7 @@
       <hr>
       <h2>Full Description</h2>
       <div [mathjax] class="project-description long-description"
-        [innerHTML]="projectCard.description.full | mdToHtml:'no-paragraph'">mathjax typesetting
+        [innerHTML]="projectCard.description.full | markdown | youtube">mathjax typesetting
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@
     left: calc(-1 * var(--width));
     width: var(--width);
     background-color: rgb(249, 252, 255);
-    z-index: 2;
+    z-index: 1000;
     transition: left 100ms ease-in-out;
 }
 
@@ -75,7 +75,7 @@
     width: 100%;
     opacity: 0;
     background-color: #555;
-    z-index: 1;
+    z-index: 999;
     pointer-events: none;
     transition: opacity 100ms ease-in-out;
 }

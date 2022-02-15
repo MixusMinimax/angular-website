@@ -15,8 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { MathJaxModule } from 'ngx-mathjax'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { MdToHtmlPipe } from './common/pipes/md-to-html.pipe'
-import { NewlineToBreakPipe } from './common/pipes/newline-to-break.pipe'
+import { YoutubePipe } from './common/pipes/youtube.pipe'
 import { ReplaceSpacesPipe } from './common/pipes/replace-spaces.pipe'
 import { ToSafeHtmlPipe } from './common/pipes/to-safe-html.pipe'
 import { YoutubeExtractIDPipe } from './common/pipes/youtube-extract-id.pipe'
@@ -26,9 +25,11 @@ import { HomeComponent } from './home/home.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { ProjectPageComponent } from './project-page/project-page.component'
 import { ProjectsComponent } from './projects/projects.component'
-import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { YoutubeVideoComponent } from './youtube-video/youtube-video.component'
+import { NotFoundComponent } from './not-found/not-found.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { MarkdownModule } from 'ngx-markdown';
+
 
 @NgModule({
     declarations: [
@@ -36,8 +37,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
         NavbarComponent,
         HomeComponent,
         CvComponent,
-        MdToHtmlPipe,
-        NewlineToBreakPipe,
         ProjectsComponent,
         ProjectPageComponent,
         ReplaceSpacesPipe,
@@ -45,7 +44,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
         YoutubeVideoComponent,
         YoutubeExtractIDPipe,
         ToSafeHtmlPipe,
-        NotFoundComponent
+        NotFoundComponent,
+        YoutubePipe
     ],
     imports: [
         BrowserModule,
@@ -54,6 +54,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
         LayoutModule,
         FlexLayoutModule,
         FontAwesomeModule,
+        NgbModule,
+        MarkdownModule.forRoot(),
 
         // Material:
         MatToolbarModule,
@@ -71,7 +73,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
             config: 'TeX-AMS_HTML',
             hostname: 'cdnjs.cloudflare.com',
         }),
-         NgbModule,
     ],
     providers: [
         YoutubeExtractIDPipe,

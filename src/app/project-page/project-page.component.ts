@@ -2,7 +2,6 @@ import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/cor
 import { Title } from '@angular/platform-browser'
 import { ActivatedRoute, Router } from '@angular/router'
 import { ProjectCard } from '../common/models/project-card'
-import { ReplaceSpacesPipe } from '../common/pipes/replace-spaces.pipe'
 import { ProjectsService } from '../common/services/projects.service'
 
 @Component({
