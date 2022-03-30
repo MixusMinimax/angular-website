@@ -10,12 +10,12 @@ export class YoutubePipe implements PipeTransform {
 
     constructor(
         private youtubeExtractIDPipe: YoutubeExtractIDPipe,
-        private toSaveHtmlPipe: ToSafeHtmlPipe,
+        private toSafeHtmlPipe: ToSafeHtmlPipe,
     ) { }
 
     transform(value: SafeHtml): SafeHtml {
         let str = (value as any).changingThisBreaksApplicationSecurity as string
-        return this.toSaveHtmlPipe.transform(str.replace(/<img src="([^"]+)"(?: alt="[^"]+")?>/g, (match, src) => {
+        return this.toSafeHtmlPipe.transform(str.replace(/<img src="([^"]+)"(?: alt="[^"]+")?>/g, (match, src) => {
             let id = this.youtubeExtractIDPipe.transform(src)
             return id
                 ? `<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
